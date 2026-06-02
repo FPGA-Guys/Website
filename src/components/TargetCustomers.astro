@@ -1,0 +1,137 @@
+---
+const prospects = [
+	{
+		name: 'Saputo',
+		sector: 'Dairy',
+		city: 'Saint-Léonard, QC',
+		assets: 'Pasteurizers · separators · CIP pumps',
+	},
+	{
+		name: 'Lassonde Industries',
+		sector: 'Juice & beverage',
+		city: 'Rougemont, QC',
+		assets: 'Fillers · evaporators · compressors',
+	},
+	{
+		name: 'Olymel',
+		sector: 'Pork & poultry',
+		city: 'Multi-site, QC',
+		assets: 'Refrigeration · conveyors · packaging',
+	},
+	{
+		name: 'Bonduelle Canada',
+		sector: 'Frozen & canned vegetables',
+		city: 'Saint-Denis-sur-Richelieu, QC',
+		assets: 'Blanchers · mixers · process pumps',
+	},
+	{
+		name: 'Lallemand',
+		sector: 'Yeast & biotech fermentation',
+		city: 'Montréal, QC',
+		assets: 'Fermenters · centrifuges · agitators',
+	},
+	{
+		name: 'Cascades',
+		sector: 'Pulp & paper',
+		city: 'Kingsey Falls, QC',
+		assets: 'Refiners · vacuum pumps · drives',
+	},
+];
+---
+
+<section id="customers" class="relative py-28 md:py-36">
+	<div class="container-x">
+		<div class="mx-auto max-w-3xl text-center">
+			<div data-reveal>
+				<span class="section-eyebrow">Quebec beachhead</span>
+			</div>
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
+				We start where we have <span class="text-gradient-accent">credibility &amp; access</span>.
+			</h2>
+			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
+				Mid-market food &amp; beverage manufacturers on our doorstep &mdash; the densest concentration
+				of qualified prospects in Canada, reachable through Concordia&rsquo;s industrial network and the
+				team&rsquo;s direct contacts.
+			</p>
+		</div>
+
+		<!-- Prospect grid -->
+		<div class="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				prospects.map((p, i) => (
+					<article
+						data-reveal
+						data-reveal-delay={String((i % 3) + 1)}
+						class="group relative bg-[var(--color-bg)] p-6 transition-colors hover:bg-[var(--color-surface)]"
+					>
+						<div class="flex items-start justify-between gap-3">
+							<div>
+								<h3 class="text-lg font-semibold text-white">{p.name}</h3>
+								<p class="mt-0.5 text-xs tracking-wide text-[var(--color-text-muted)] uppercase">
+									{p.sector}
+								</p>
+							</div>
+							<span class="font-mono text-[10px] text-[var(--color-text-dim)]">T1</span>
+						</div>
+						<p class="mt-4 text-sm text-[var(--color-text-muted)]">{p.city}</p>
+						<p class="mt-3 text-xs leading-relaxed text-[var(--color-text-dim)]">
+							<span class="text-[var(--color-text-muted)]">Critical assets:</span> {p.assets}
+						</p>
+
+						<div class="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#2dd4bf]/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+					</article>
+				))
+			}
+		</div>
+
+		<!-- Reach strategy -->
+		<div class="mt-12 grid gap-6 md:grid-cols-3">
+			{
+				[
+					{
+						icon: 'network',
+						title: 'Direct outreach + Concordia network',
+						body: 'Through the Gina Cody School\u2019s industry partners, Centech, and the team\u2019s existing engineering relationships.',
+					},
+					{
+						icon: 'event',
+						title: 'Sector events & industry chapters',
+						body: 'AQFP (Quebec Food Processing), IEEE, and CSME chapters where the team already holds named leadership roles.',
+					},
+					{
+						icon: 'graph',
+						title: 'Plant-to-plant referrals',
+						body: 'Once one site is live, expansion across other facilities of the same parent company is the dominant motion.',
+					},
+				].map((item, i) => (
+					<div data-reveal data-reveal-delay={String(i + 1)} class="card p-6">
+						<span class="glow-ring" />
+						<div class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[var(--color-bg)]">
+							{item.icon === 'network' && (
+								<svg class="h-5 w-5 text-[#2dd4bf]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="6" cy="6" r="2" />
+									<circle cx="18" cy="6" r="2" />
+									<circle cx="12" cy="18" r="2" />
+									<path d="M6 8l6 8M18 8l-6 8" />
+								</svg>
+							)}
+							{item.icon === 'event' && (
+								<svg class="h-5 w-5 text-[#60a5fa]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="4" y="5" width="16" height="15" rx="2" />
+									<path d="M8 3v4M16 3v4M4 10h16" />
+								</svg>
+							)}
+							{item.icon === 'graph' && (
+								<svg class="h-5 w-5 text-[#34d399]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M4 19h16M4 19V5M4 19l6-6 4 3 6-8" />
+								</svg>
+							)}
+						</div>
+						<h3 class="mt-4 text-base font-semibold text-white">{item.title}</h3>
+						<p class="mt-2 text-sm text-[var(--color-text-muted)]">{item.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

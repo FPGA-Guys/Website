@@ -1,85 +1,61 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, CONTACT_EMAIL } from '../consts';
+import BrandMark from './BrandMark.astro';
+
 const today = new Date();
 
 const columns = [
 	{
-		title: 'Company',
+		title: 'Product',
 		links: [
-			{ label: 'About', href: '/#about' },
-			{ label: 'Projects', href: '/#projects' },
-			{ label: 'Team', href: '/#team' },
-			{ label: 'Careers', href: '/#contact' },
+			{ label: 'How it works', href: '/#how' },
+			{ label: 'Pricing', href: '/#pricing' },
+			{ label: 'Tech stack', href: '/#tech' },
+			{ label: 'Comparison', href: '/#comparison' },
 		],
 	},
 	{
-		title: 'Resources',
+		title: 'Company',
 		links: [
-			{ label: 'Blog', href: '/#blog' },
-			{ label: 'Whitepapers', href: '#' },
-			{ label: 'Documentation', href: '#' },
-			{ label: 'RSS', href: '/rss.xml' },
+			{ label: 'Team', href: '/#team' },
+			{ label: 'Updates', href: '/#updates' },
+			{ label: 'Backed by', href: '/#backed' },
+			{ label: 'Contact', href: '/#contact' },
 		],
 	},
 	{
 		title: 'Connect',
 		links: [
-			{ label: 'GitHub', href: '#' },
-			{ label: 'LinkedIn', href: '#' },
-			{ label: 'X / Twitter', href: '#' },
-			{ label: 'hello@phasora.com', href: 'mailto:hello@phasora.com' },
+			{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/soma-chenardkone/' },
+			{ label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+			{ label: 'Concordia · Gina Cody', href: 'https://www.concordia.ca/ginacody.html' },
+			{ label: 'IEEE Concordia', href: '#' },
 		],
 	},
 ];
 ---
 
-<footer id="contact" class="relative mt-32 border-t border-white/5 bg-[var(--color-bg-soft)]">
+<footer id="contact-footer" class="relative mt-24 border-t border-white/5 bg-[var(--color-bg-soft)]">
 	<div
-		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-[#7c5cff]/40 to-transparent"
+		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-[#2dd4bf]/40 to-transparent"
 	>
 	</div>
-	<div class="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-[0.25]"></div>
+	<div class="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-[0.2]"></div>
 
 	<div class="container-x py-20">
 		<div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
 			<div data-reveal class="max-w-md">
 				<a href="/" class="inline-flex items-center gap-2.5">
-					<span class="relative inline-flex h-9 w-9 items-center justify-center">
-						<span
-							class="absolute inset-0 rounded-lg bg-gradient-to-br from-[#7c5cff] to-[#22d3ee] opacity-70 blur-[10px]"
-						></span>
-						<svg viewBox="0 0 32 32" class="relative h-7 w-7" fill="none" aria-hidden="true">
-							<rect x="3" y="3" width="26" height="26" rx="6" fill="#0a0d16" stroke="url(#fg)" stroke-width="1.5"></rect>
-							<path d="M9 22 L16 9 L23 22" stroke="url(#fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-							<circle cx="16" cy="22" r="1.6" fill="#22d3ee"></circle>
-							<defs>
-								<linearGradient id="fg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-									<stop stop-color="#7c5cff"></stop>
-									<stop offset="1" stop-color="#22d3ee"></stop>
-								</linearGradient>
-							</defs>
-						</svg>
-					</span>
+					<BrandMark size={32} idSuffix="footer" />
 					<span class="text-lg font-semibold tracking-tight text-white">{SITE_TITLE}</span>
 				</a>
 				<p class="mt-5 text-sm leading-relaxed text-[var(--color-text-muted)]">
-					Reconfigurable silicon for the age of intelligence. We build FPGA-accelerated systems
-					and custom AI compute fabrics from research bench to production rack.
+					Edge-AI condition monitoring for the mid-market. We make enterprise-grade predictive
+					maintenance affordable, self-installing, and built for the plants that the incumbents
+					can&rsquo;t reach.
 				</p>
-
-				<form class="mt-7 flex w-full max-w-sm items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1.5 pl-4 backdrop-blur">
-					<input
-						type="email"
-						required
-						placeholder="your@email.com"
-						class="min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-[var(--color-text-dim)] focus:outline-none"
-					/>
-					<button type="submit" class="btn btn-primary !py-2 !px-4 text-xs">
-						Subscribe
-					</button>
-				</form>
-				<p class="mt-2 text-xs text-[var(--color-text-dim)]">
-					Engineering notes & occasional release announcements. No spam.
+				<p class="mt-4 text-xs text-[var(--color-text-dim)]">
+					Built at Concordia University &middot; Gina Cody School of Engineering &middot; Montréal, QC
 				</p>
 			</div>
 
@@ -109,17 +85,16 @@ const columns = [
 		<div
 			class="mt-8 flex flex-col items-start justify-between gap-4 text-xs text-[var(--color-text-dim)] md:flex-row md:items-center"
 		>
-			<p>&copy; {today.getFullYear()} {SITE_TITLE} Labs, Inc. All rights reserved.</p>
+			<p>&copy; {today.getFullYear()} {SITE_TITLE} &mdash; A Concordia engineering venture. All rights reserved.</p>
 			<div class="flex items-center gap-5">
 				<a href="#" class="hover:text-white">Privacy</a>
 				<a href="#" class="hover:text-white">Terms</a>
-				<a href="#" class="hover:text-white">Security</a>
 				<div class="flex items-center gap-2">
 					<span class="relative flex h-2 w-2">
 						<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"></span>
 						<span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
 					</span>
-					<span>All systems operational</span>
+					<span>Phase 1 in progress</span>
 				</div>
 			</div>
 		</div>

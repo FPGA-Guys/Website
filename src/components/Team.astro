@@ -1,70 +1,64 @@
 ---
 const team = [
 	{
-		name: 'Dr. Mira Okafor',
-		role: 'Co-founder & CEO',
-		bio: 'Previously led FPGA architecture at a major hyperscaler. PhD in reconfigurable computing from ETH Zürich.',
-		hue: '#7c5cff',
-		initials: 'MO',
-		links: [
-			{ label: 'in', href: '#' },
-			{ label: '@', href: '#' },
-		],
+		name: 'Soma Chénard-Koné',
+		role: 'CEO',
+		focus: 'Strategy, direction & coordination',
+		bio: 'Founder. Director of Projects at IEEE Concordia and former VP IT at the CSME Concordia chapter. Originated MidMon and assembled the team, recruiting each member for a distinct technical discipline.',
+		hue: '#2dd4bf',
+		initials: 'SC',
+		linkedin: 'https://www.linkedin.com/in/soma-chenardkone/',
+		email: 'so_chena@live.concordia.ca',
 	},
 	{
-		name: 'Wen Zhao',
-		role: 'Co-founder & CTO',
-		bio: 'ML compiler engineer. Built two production inference stacks for autonomous driving. Loves a good Verilog hack.',
-		hue: '#22d3ee',
-		initials: 'WZ',
-		links: [
-			{ label: 'in', href: '#' },
-			{ label: '@', href: '#' },
-		],
-	},
-	{
-		name: 'Sasha Brennan',
-		role: 'Head of Silicon',
-		bio: 'Three tape-outs at TSMC N7 and N5. Specializes in low-power dataflow and SerDes design.',
-		hue: '#f472b6',
-		initials: 'SB',
-		links: [
-			{ label: 'in', href: '#' },
-			{ label: '@', href: '#' },
-		],
-	},
-	{
-		name: 'Idris Haddad',
-		role: 'Head of Research',
-		bio: 'Works on quantization, sparsity, and hardware-aware NAS. Author of two CVPR papers on efficient inference.',
-		hue: '#fbbf24',
-		initials: 'IH',
-		links: [
-			{ label: 'in', href: '#' },
-			{ label: '@', href: '#' },
-		],
-	},
-	{
-		name: 'Priya Anand',
-		role: 'Principal Systems Engineer',
-		bio: 'Designs the runtime that orchestrates Phasora racks. Previously built distributed schedulers at a search company.',
-		hue: '#34d399',
-		initials: 'PA',
-		links: [
-			{ label: 'in', href: '#' },
-			{ label: '@', href: '#' },
-		],
-	},
-	{
-		name: 'Luca Rinaldi',
-		role: 'Customer Engineering Lead',
-		bio: 'Bridges deployment teams and silicon. Ex-staff engineer at a self-driving startup.',
+		name: 'Anabella Kowalski',
+		role: 'CTO',
+		focus: 'FPGA architecture · technical lead',
+		bio: 'VP Marketing at IEEE Concordia. Past role at Natural Resources Canada gave her direct exposure to how government and industrial buyers evaluate new hardware. Leads the architecture of the FPGA-NPU codesign that constitutes the platform\u2019s moat.',
 		hue: '#60a5fa',
-		initials: 'LR',
-		links: [
-			{ label: 'in', href: '#' },
-			{ label: '@', href: '#' },
-		],
+		initials: 'AK',
+		linkedin: 'https://www.linkedin.com/in/anabella-kowalski-3552k',
+		email: 'an_kowal@live.concordia.ca',
+	},
+	{
+		name: 'Nirmal Patel',
+		role: 'CPO',
+		focus: 'Product · edge ML model lead',
+		bio: 'VP of Projects at IEEE Concordia — the senior project leadership role in the club. Leads edge ML: training, quantizing, and deploying transformer-class anomaly detection models onto the Hailo-8L NPU.',
+		hue: '#34d399',
+		initials: 'NP',
+		linkedin: 'https://www.linkedin.com/in/nirmalpatelxyz/',
+		email: 'pa_nirm@live.concordia.ca',
+	},
+	{
+		name: 'Eithan Kuri Valdovinos',
+		role: 'CFO',
+		focus: 'RF & signal processing · grants (MDA Space)',
+		bio: 'Industry intern at MDA Space / Airbus Montréal — one of the most demanding embedded electronics environments in the Quebec aerospace cluster. Handles RF, signal processing, and the non-dilutive funding pipeline (IRAP, SR&ED, CRIC).',
+		hue: '#f59e0b',
+		initials: 'EK',
+		linkedin: 'https://www.linkedin.com/in/eithan-kuri-valdovinos/',
+		email: 'eithan@concordia.ca',
+	},
+	{
+		name: 'Daniel Akbari',
+		role: 'VP Engineering',
+		focus: 'Edge inference & developer infrastructure',
+		bio: 'Dual internships in project management and data analysis — an unusually broad profile for an undergraduate engineer. Owns customer discovery, pilot negotiation, and the financial model alongside core engineering work.',
+		hue: '#c084fc',
+		initials: 'DA',
+		linkedin: 'https://www.linkedin.com/in/daniel-akbari',
+		email: 'daniel.akbari@mail.concordia.ca',
+	},
+	{
+		name: 'Sepehr Ghasemzadeh',
+		role: 'CBO',
+		focus: 'Business development & customer discovery',
+		bio: 'Director of Projects at IEEE Concordia since summer 2024, leading multi-person technical teams through full project lifecycles. Owns embedded systems integration and the go-to-market motion into Quebec plants.',
+		hue: '#f472b6',
+		initials: 'SG',
+		linkedin: 'https://www.linkedin.com/in/sepehr-ghasemzadeh-moghaddam/',
+		email: 'se_gha@live.concordia.ca',
 	},
 ];
 ---
@@ -73,15 +67,15 @@ const team = [
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
-				<span class="section-eyebrow">Team</span>
+				<span class="section-eyebrow">The team</span>
 			</div>
 			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-				Engineers who think in <span class="text-gradient-accent">gates and gradients</span>.
+				Six engineers &mdash; each owns <span class="text-gradient-accent">one discipline the moat depends on</span>.
 			</h2>
 			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-				A tight-knit crew with deep experience across silicon, compilers, and ML research &mdash;
-				and a shared belief that the next leap in AI will come from better hardware, not just
-				bigger models.
+				MidMon requires simultaneous competency in FPGA design, RF signal processing, edge ML,
+				embedded systems, cloud integration, and industrial B2B sales. This team was assembled
+				specifically because each member covers exactly one of those verticals.
 			</p>
 		</div>
 
@@ -91,61 +85,58 @@ const team = [
 					<article data-reveal data-reveal-delay={String((i % 3) + 1)} class="card group relative overflow-hidden p-6">
 						<span class="glow-ring" />
 						<div class="flex items-start gap-4">
+							<!-- Photo placeholder slot — easy to swap with a real <img /> later -->
 							<div
-								class="relative inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-base font-semibold text-white"
+								class="relative inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl text-base font-semibold text-white"
 								style={`background: linear-gradient(135deg, ${member.hue}33, ${member.hue}11); border: 1px solid ${member.hue}55;`}
+								aria-label={`${member.name} avatar`}
 							>
-								<span
-									class="absolute inset-0 -z-10 rounded-2xl opacity-50 blur-md"
-									style={`background: ${member.hue};`}
-								/>
+								<span class="absolute inset-0 -z-10 rounded-2xl opacity-50 blur-md" style={`background: ${member.hue};`} />
 								{member.initials}
 							</div>
-							<div class="min-w-0">
+							<div class="min-w-0 flex-1">
 								<h3 class="text-base font-semibold text-white">{member.name}</h3>
-								<p class="text-xs tracking-wide text-[var(--color-text-muted)] uppercase">
-									{member.role}
-								</p>
+								<p class="text-xs tracking-wide text-[var(--color-accent)] uppercase">{member.role}</p>
+								<p class="mt-1 text-xs text-[var(--color-text-dim)]">{member.focus}</p>
 							</div>
 						</div>
 						<p class="mt-5 text-sm leading-relaxed text-[var(--color-text-muted)]">{member.bio}</p>
 
 						<div class="mt-5 flex items-center gap-2">
-							{member.links.map((link) => (
-								<a
-									href={link.href}
-									aria-label={`${member.name} ${link.label === 'in' ? 'LinkedIn' : 'X / Twitter'}`}
-									class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-xs text-[var(--color-text-muted)] transition-colors hover:border-white/30 hover:text-white"
-								>
-									{link.label === 'in' ? (
-										<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-											<path d="M3.07 4.7a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2ZM1.6 5.92h2.94v8.58H1.6V5.92ZM6.34 5.92h2.82v1.17h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.49 1.94 3.49 4.46v4.47h-2.93v-3.96c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08v4.03H6.34V5.92Z" />
-										</svg>
-									) : (
-										<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-											<path d="M9.6 6.77 14.4 1.6h-1.14L9.1 6.09 5.78 1.6H1.6L6.62 8.4 1.6 14.4h1.14L7.13 9.6l3.45 4.8h4.18L9.6 6.77Zm-1.43 1.6-.5-.67-3.98-5.13H6.4l3.18 4.16.5.67 4.16 5.4h-1.7l-3.37-4.43Z" />
-										</svg>
-									)}
-								</a>
-							))}
+							<a
+								href={member.linkedin}
+								target="_blank"
+								rel="noopener"
+								aria-label={`${member.name} on LinkedIn`}
+								class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-xs text-[var(--color-text-muted)] transition-colors hover:border-white/30 hover:text-white"
+							>
+								<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+									<path d="M3.07 4.7a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2ZM1.6 5.92h2.94v8.58H1.6V5.92ZM6.34 5.92h2.82v1.17h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.49 1.94 3.49 4.46v4.47h-2.93v-3.96c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08v4.03H6.34V5.92Z" />
+								</svg>
+							</a>
+							<a
+								href={`mailto:${member.email}`}
+								aria-label={`Email ${member.name}`}
+								class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-xs text-[var(--color-text-muted)] transition-colors hover:border-white/30 hover:text-white"
+							>
+								<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="M2 4l6 5 6-5M2 4v8h12V4M2 4h12" />
+								</svg>
+							</a>
 						</div>
 
-						<!-- Subtle hover sheen -->
 						<div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-							<div class="shimmer absolute inset-0 rounded-[inherit]"></div>
+							<div class="shimmer absolute inset-0 rounded-[inherit]" />
 						</div>
 					</article>
 				))
 			}
 		</div>
 
-		<div data-reveal class="mt-14 text-center">
-			<a href="#contact" class="btn btn-ghost">
-				We&rsquo;re hiring across silicon, ML &amp; systems
-				<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-					<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-				</svg>
-			</a>
+		<!-- Closer -->
+		<div data-reveal class="mx-auto mt-14 max-w-3xl text-center text-sm text-[var(--color-text-muted)]">
+			Every member has held a named, elected leadership role and delivered under real
+			accountability. <span class="text-white">Track record over titles.</span>
 		</div>
 	</div>
 </section>

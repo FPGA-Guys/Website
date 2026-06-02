@@ -3,10 +3,16 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Projects from '../components/Projects.astro';
-import BlogUpdates from '../components/BlogUpdates.astro';
+import Problem from '../components/Problem.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Comparison from '../components/Comparison.astro';
+import Pricing from '../components/Pricing.astro';
+import TargetCustomers from '../components/TargetCustomers.astro';
+import TechStack from '../components/TechStack.astro';
 import Team from '../components/Team.astro';
+import BackedBy from '../components/BackedBy.astro';
+import BlogUpdates from '../components/BlogUpdates.astro';
+import Contact from '../components/Contact.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
@@ -14,7 +20,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`${SITE_TITLE} — Reconfigurable silicon for the age of intelligence`}
+			title={`${SITE_TITLE} — Edge-AI condition monitoring for mid-market manufacturers`}
 			description={SITE_DESCRIPTION}
 		/>
 	</head>
@@ -22,10 +28,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<Header />
 		<main>
 			<Hero />
-			<About />
-			<Projects />
-			<BlogUpdates />
+			<Problem />
+			<HowItWorks />
+			<Comparison />
+			<Pricing />
+			<TargetCustomers />
+			<TechStack />
 			<Team />
+			<BackedBy />
+			<BlogUpdates />
+			<Contact />
 		</main>
 		<Footer />
 	</body>

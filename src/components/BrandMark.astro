@@ -1,0 +1,48 @@
+---
+interface Props {
+	size?: number;
+	idSuffix?: string;
+}
+const { size = 32, idSuffix = 'bm' } = Astro.props;
+const gid = `mm-grad-${idSuffix}`;
+---
+
+<span class="relative inline-flex shrink-0 items-center justify-center" style={`width:${size}px;height:${size}px;`}>
+	<span
+		class="absolute inset-0 rounded-lg bg-gradient-to-br from-[#2dd4bf] to-[#60a5fa] opacity-60 blur-[10px]"
+	></span>
+	<svg
+		viewBox="0 0 64 64"
+		class="relative"
+		style={`width:${size}px;height:${size}px;`}
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		aria-hidden="true"
+	>
+		<defs>
+			<linearGradient id={gid} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+				<stop offset="0" stop-color="#2dd4bf"></stop>
+				<stop offset="1" stop-color="#60a5fa"></stop>
+			</linearGradient>
+		</defs>
+		<rect
+			x="4"
+			y="4"
+			width="56"
+			height="56"
+			rx="14"
+			fill="#04080f"
+			stroke={`url(#${gid})`}
+			stroke-width="2.5"
+		></rect>
+		<path
+			d="M12 38 L20 38 L24 28 L30 46 L36 22 L40 38 L52 38"
+			stroke={`url(#${gid})`}
+			stroke-width="3"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			fill="none"
+		></path>
+		<circle cx="52" cy="38" r="3" fill="#2dd4bf"></circle>
+	</svg>
+</span>
