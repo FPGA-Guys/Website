@@ -1,0 +1,112 @@
+---
+import { SITE_TITLE } from '../consts';
+
+const navLinks = [
+	{ href: '/#about', label: 'About' },
+	{ href: '/#projects', label: 'Projects' },
+	{ href: '/#blog', label: 'Blog' },
+	{ href: '/#team', label: 'Team' },
+];
+---
+
+<header
+	id="site-header"
+	class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+>
+	<div class="container-x">
+		<nav
+			class="mt-4 flex items-center justify-between gap-6 rounded-2xl border border-white/10 bg-[rgba(10,13,22,0.6)] px-4 py-3 backdrop-blur-xl md:px-6"
+		>
+			<a href="/" class="group flex items-center gap-2.5">
+				<span class="relative inline-flex h-8 w-8 items-center justify-center">
+					<span
+						class="absolute inset-0 rounded-lg bg-gradient-to-br from-[#7c5cff] to-[#22d3ee] opacity-70 blur-[10px] transition-opacity group-hover:opacity-100"
+					></span>
+					<svg
+						viewBox="0 0 32 32"
+						class="relative h-7 w-7"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						aria-hidden="true"
+					>
+						<rect x="3" y="3" width="26" height="26" rx="6" fill="#0a0d16" stroke="url(#g)" stroke-width="1.5"></rect>
+						<path d="M9 22 L16 9 L23 22" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						<circle cx="16" cy="22" r="1.6" fill="#22d3ee"></circle>
+						<defs>
+							<linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+								<stop stop-color="#7c5cff"></stop>
+								<stop offset="1" stop-color="#22d3ee"></stop>
+							</linearGradient>
+						</defs>
+					</svg>
+				</span>
+				<span class="text-base font-semibold tracking-tight text-white">{SITE_TITLE}</span>
+			</a>
+
+			<ul class="hidden items-center gap-1 md:flex">
+				{
+					navLinks.map((link) => (
+						<li>
+							<a
+								href={link.href}
+								class="rounded-full px-3 py-1.5 text-sm text-[var(--color-text-muted)] transition-colors hover:bg-white/5 hover:text-white"
+							>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+
+			<div class="flex items-center gap-2">
+				<a
+					href="/#contact"
+					class="btn btn-ghost hidden md:inline-flex"
+				>
+					Contact
+				</a>
+				<a href="/#contact" class="btn btn-primary">
+					<span>Work with us</span>
+					<svg
+						class="h-3.5 w-3.5"
+						viewBox="0 0 16 16"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						aria-hidden="true"
+					>
+						<path
+							d="M3 8h10M9 4l4 4-4 4"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<script is:inline>
+	(function () {
+		const header = document.getElementById('site-header');
+		if (!header) return;
+		const update = () => {
+			if (window.scrollY > 12) {
+				header.classList.add('is-scrolled');
+			} else {
+				header.classList.remove('is-scrolled');
+			}
+		};
+		update();
+		window.addEventListener('scroll', update, { passive: true });
+	})();
+</script>
+
+<style>
+	#site-header.is-scrolled nav {
+		background: rgba(5, 6, 10, 0.78);
+		box-shadow: 0 12px 40px -20px rgba(0, 0, 0, 0.8);
+		border-color: rgba(255, 255, 255, 0.14);
+	}
+</style>

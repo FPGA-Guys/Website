@@ -1,0 +1,95 @@
+---
+const pillars = [
+	{
+		title: 'Silicon-first thinking',
+		description:
+			'We design from the gate up — pipelines, memory hierarchies, and dataflows built specifically for the model, not the other way around.',
+		icon: 'chip',
+	},
+	{
+		title: 'Models that respect the metal',
+		description:
+			'Our ML team co-designs architectures with our hardware team. Quantization, sparsity, and operator fusion live in the spec, not the postscript.',
+		icon: 'brain',
+	},
+	{
+		title: 'From notebook to rack',
+		description:
+			'We ship the full pipeline: synthesis, place & route, runtime, telemetry, and OTA bitstream updates — production-grade, day one.',
+		icon: 'rack',
+	},
+];
+---
+
+<section id="about" class="relative py-28 md:py-36">
+	<div class="container-x">
+		<div class="mx-auto max-w-3xl text-center">
+			<div data-reveal class="flex justify-center">
+				<span class="section-eyebrow">About us</span>
+			</div>
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
+				A small team rebuilding the
+				<span class="text-gradient-accent">AI compute stack</span> from the silicon up.
+			</h2>
+			<p data-reveal data-reveal-delay="2" class="mx-auto mt-6 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
+				Phasora was founded in 2024 by a group of FPGA architects, ML compiler engineers, and
+				systems researchers who got tired of waiting for the next GPU. We build reconfigurable
+				compute fabrics for teams that need lower latency, lower power, and tighter control over
+				every cycle.
+			</p>
+		</div>
+
+		<div class="mt-16 grid gap-6 md:grid-cols-3">
+			{
+				pillars.map((pillar, i) => (
+					<article data-reveal data-reveal-delay={String(i + 1)} class="card group p-7">
+						<span class="glow-ring" />
+						<div class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+							{pillar.icon === 'chip' && (
+								<svg class="h-5 w-5 text-[#7c5cff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="6" y="6" width="12" height="12" rx="2" />
+									<path d="M9 9h6v6H9z" />
+									<path d="M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3" />
+								</svg>
+							)}
+							{pillar.icon === 'brain' && (
+								<svg class="h-5 w-5 text-[#22d3ee]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M9.5 3a3 3 0 0 0-3 3v.5A3 3 0 0 0 4 9.5v1A3 3 0 0 0 6 14a3 3 0 0 0 3 3 3 3 0 0 0 3-3V3.5A.5.5 0 0 0 11.5 3H9.5Z" />
+									<path d="M14.5 3a3 3 0 0 1 3 3v.5A3 3 0 0 1 20 9.5v1A3 3 0 0 1 18 14a3 3 0 0 1-3 3 3 3 0 0 1-3-3V3.5a.5.5 0 0 1 .5-.5h2Z" />
+									<path d="M9 17v2a2 2 0 0 0 4 0v-2M15 17v2a2 2 0 0 1-3 .8" />
+								</svg>
+							)}
+							{pillar.icon === 'rack' && (
+								<svg class="h-5 w-5 text-[#f472b6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="3" y="4" width="18" height="5" rx="1" />
+									<rect x="3" y="10.5" width="18" height="5" rx="1" />
+									<rect x="3" y="17" width="18" height="3.5" rx="1" />
+									<circle cx="7" cy="6.5" r="0.6" fill="currentColor" />
+									<circle cx="7" cy="13" r="0.6" fill="currentColor" />
+								</svg>
+							)}
+						</div>
+						<h3 class="text-lg font-semibold text-white">{pillar.title}</h3>
+						<p class="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">{pillar.description}</p>
+					</article>
+				))
+			}
+		</div>
+
+		<!-- KPI band -->
+		<div data-reveal class="mt-16 grid items-stretch gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-3">
+			<div class="bg-[var(--color-bg)] p-8">
+				<div class="text-4xl font-semibold text-white md:text-5xl">17</div>
+				<div class="mt-1 text-sm text-[var(--color-text-muted)]">engineers, half with silicon tape-out experience</div>
+			</div>
+			<div class="bg-[var(--color-bg)] p-8">
+				<div class="text-4xl font-semibold text-white md:text-5xl">3×</div>
+				<div class="mt-1 text-sm text-[var(--color-text-muted)]">average inference speedup over equivalent GPU baselines</div>
+			</div>
+			<div class="bg-[var(--color-bg)] p-8">
+				<div class="text-4xl font-semibold text-white md:text-5xl">$24M</div>
+				<div class="mt-1 text-sm text-[var(--color-text-muted)]">raised across seed and Series A, led by Foundry Ventures</div>
+			</div>
+		</div>
+	</div>
+</section>

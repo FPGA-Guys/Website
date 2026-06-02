@@ -1,0 +1,59 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description="About Phasora — reconfigurable silicon for the age of intelligence." />
+	</head>
+	<body>
+		<Header />
+		<main class="pt-36 md:pt-44 pb-24">
+			<section class="container-x">
+				<div class="mx-auto max-w-3xl">
+					<span class="section-eyebrow">About</span>
+					<h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+						We&rsquo;re here to make AI compute <span class="text-gradient-accent">programmable again</span>.
+					</h1>
+					<p class="mt-6 text-lg text-[var(--color-text-muted)]">
+						Phasora was founded in 2024 by a group of FPGA architects, ML compiler engineers,
+						and systems researchers. We build reconfigurable compute fabrics for teams that
+						need lower latency, lower power, and tighter control over every cycle — from
+						defense and aerospace to autonomy and frontier research.
+					</p>
+
+					<div class="mt-12 space-y-6 text-[var(--color-text-muted)]">
+						<p>
+							The last decade has been about scaling models. The next will be about scaling
+							<em class="text-white">specificity</em>: shaping the silicon to fit the model, not
+							the other way around. Reconfigurable hardware — FPGAs today, custom ASICs
+							tomorrow — gives us a path to do that without the multi-year tape-out latency
+							of a traditional silicon company.
+						</p>
+						<p>
+							We work end-to-end. Our compilers, runtimes, and toolchains let any PyTorch
+							team target our hardware. Our research group co-designs operators and kernels
+							with our hardware team so nothing gets lost in translation. And our deployment
+							engineers make sure what ships to a customer rack today gets better, with OTA
+							bitstream updates, in the months that follow.
+						</p>
+						<p>
+							If any of that sounds like the kind of problem you want to spend the next five
+							years on, we&rsquo;d love to hear from you.
+						</p>
+					</div>
+
+					<div class="mt-12 flex flex-wrap gap-3">
+						<a href="/#projects" class="btn btn-primary">See current projects</a>
+						<a href="/#contact" class="btn btn-ghost">Get in touch</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

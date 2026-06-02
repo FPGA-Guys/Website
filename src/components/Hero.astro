@@ -1,0 +1,160 @@
+---
+const stats = [
+	{ value: '12.4 TOPS', label: 'Peak inference, custom dataflow' },
+	{ value: '38W', label: 'Power envelope at full utilization' },
+	{ value: '4 ns', label: 'Pipeline-stage latency, end to end' },
+	{ value: '6 nm', label: 'Target process node for v2 silicon' },
+];
+---
+
+<section id="hero" class="relative isolate overflow-hidden pt-36 pb-28 md:pt-44 md:pb-40">
+	<!-- Background layers -->
+	<div class="pointer-events-none absolute inset-0 -z-20">
+		<div
+			class="absolute -top-40 left-1/2 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(124,92,255,0.35),transparent_60%)] blur-3xl"
+		>
+		</div>
+		<div
+			class="animate-[pulseSlow_8s_ease-in-out_infinite] absolute top-1/3 -left-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.25),transparent_60%)] blur-3xl"
+		>
+		</div>
+		<div
+			class="animate-[pulseSlow_10s_ease-in-out_infinite] absolute right-0 top-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.18),transparent_60%)] blur-3xl"
+		>
+		</div>
+	</div>
+	<div class="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-60"></div>
+	<div class="pointer-events-none absolute inset-0 -z-10 opacity-[0.04] bg-noise"></div>
+
+	<div class="container-x relative">
+		<div class="mx-auto max-w-4xl text-center">
+			<div data-reveal class="mb-7 flex justify-center">
+				<span class="section-eyebrow">
+					<span class="relative flex h-1.5 w-1.5">
+						<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22d3ee] opacity-70"></span>
+						<span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22d3ee]"></span>
+					</span>
+					Series A · Stealth no more
+				</span>
+			</div>
+
+			<h1
+				data-reveal
+				data-reveal-delay="1"
+				class="text-5xl font-semibold tracking-tight md:text-7xl lg:text-[5.25rem]"
+			>
+				<span class="text-gradient">Reconfigurable silicon</span>
+				<br class="hidden sm:block" />
+				<span class="text-white">for the age of intelligence.</span>
+			</h1>
+
+			<p
+				data-reveal
+				data-reveal-delay="2"
+				class="mx-auto mt-7 max-w-2xl text-base text-[var(--color-text-muted)] md:text-lg"
+			>
+				Phasora designs FPGA-accelerated AI compute &mdash; from low-latency inference fabrics to
+				custom training pipelines. We help research labs and frontier teams ship models that
+				outpace what GPUs alone can deliver.
+			</p>
+
+			<div data-reveal data-reveal-delay="3" class="mt-9 flex flex-wrap items-center justify-center gap-3">
+				<a href="#projects" class="btn btn-primary">
+					<span>See what we&rsquo;re building</span>
+					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+						<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</a>
+				<a href="#contact" class="btn btn-ghost">
+					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+						<path d="M2 4l6 5 6-5M2 4v8h12V4M2 4h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+					Talk to engineering
+				</a>
+			</div>
+
+			<!-- Terminal-ish floating card -->
+			<div
+				data-reveal
+				data-reveal-delay="4"
+				class="mx-auto mt-16 max-w-3xl"
+			>
+				<div class="card animate-[float_8s_ease-in-out_infinite] relative overflow-hidden p-0 text-left">
+					<span class="glow-ring"></span>
+					<div class="flex items-center justify-between border-b border-white/5 px-5 py-3">
+						<div class="flex items-center gap-1.5">
+							<span class="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/80"></span>
+							<span class="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+							<span class="h-2.5 w-2.5 rounded-full bg-[#27c93f]/80"></span>
+						</div>
+						<span class="text-[10px] font-medium tracking-widest text-[var(--color-text-dim)] uppercase">
+							phasora · fabric.runtime
+						</span>
+						<span class="h-2.5 w-2.5"></span>
+					</div>
+					<pre class="m-0 overflow-x-auto px-5 py-5 text-[13px] leading-relaxed text-[var(--color-text-muted)]"><code><span class="text-[var(--color-text-dim)]">$</span> phasora deploy <span class="text-white">model.fpga</span> --target <span class="text-[#22d3ee]">artix-ultrascale+</span>
+<span class="text-[var(--color-text-dim)]">›</span> compiling graph <span class="text-white">resnet50-int8</span> <span class="text-[#7c5cff]">✓</span>
+<span class="text-[var(--color-text-dim)]">›</span> place &amp; route                  <span class="text-[#7c5cff]">✓</span>  <span class="text-[var(--color-text-dim)]">(38.2s)</span>
+<span class="text-[var(--color-text-dim)]">›</span> bitstream                       <span class="text-[#7c5cff]">✓</span>  <span class="text-[var(--color-text-dim)]">12.1 MB</span>
+<span class="text-[var(--color-text-dim)]">›</span> live latency                    <span class="text-[#22d3ee]">3.8 ms</span>  <span class="text-[var(--color-text-dim)]">@ batch 1</span>
+<span class="text-[var(--color-text-dim)]">›</span> throughput                      <span class="text-[#22d3ee]">12,442 inf/s</span>
+<span class="text-emerald-400">✓ deployed</span> to <span class="text-white">rack-04 · slot 11</span> <span class="text-[var(--color-text-dim)]">— ready.</span><span class="ml-0.5 inline-block h-[1.05em] w-[7px] -mb-[2px] bg-[#22d3ee] animate-[blink_1.1s_steps(2,start)_infinite]"></span></code></pre>
+				</div>
+			</div>
+
+			<!-- Stat strip -->
+			<div data-reveal data-reveal-delay="5" class="mt-14">
+				<div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-4">
+					{
+						stats.map((stat) => (
+							<div class="bg-[var(--color-bg)] p-5 text-left">
+								<div class="text-2xl font-semibold text-white md:text-3xl">{stat.value}</div>
+								<div class="mt-1 text-[11px] tracking-widest text-[var(--color-text-dim)] uppercase">
+									{stat.label}
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Marquee of partner / tech logos -->
+	<div class="container-x relative mt-20">
+		<div data-reveal class="mb-5 text-center text-xs tracking-widest text-[var(--color-text-dim)] uppercase">
+			Powering production workloads on
+		</div>
+		<div class="mask-fade-edges relative overflow-hidden">
+			<div class="flex w-max items-center gap-12 whitespace-nowrap [animation:marquee_40s_linear_infinite]">
+				{
+					[
+						'AMD · Xilinx UltraScale+',
+						'Intel Agilex',
+						'Lattice Nexus',
+						'Achronix Speedster7t',
+						'NVIDIA Jetson',
+						'TSMC N6',
+						'PyTorch · ONNX',
+						'CHIPS Alliance',
+					]
+						.concat([
+							'AMD · Xilinx UltraScale+',
+							'Intel Agilex',
+							'Lattice Nexus',
+							'Achronix Speedster7t',
+							'NVIDIA Jetson',
+							'TSMC N6',
+							'PyTorch · ONNX',
+							'CHIPS Alliance',
+						])
+						.map((logo) => (
+							<div class="text-sm font-medium tracking-wide text-[var(--color-text-muted)]/70">
+								{logo}
+							</div>
+						))
+				}
+			</div>
+		</div>
+	</div>
+</section>
