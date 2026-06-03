@@ -1,4 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+import somaPhoto from '../assets/team/soma.png';
+import anabellaPhoto from '../assets/team/anabella.jpeg';
+import nirmalPhoto from '../assets/team/nirmal.jpeg';
+import eithanPhoto from '../assets/team/eithan.jpeg';
+import danielPhoto from '../assets/team/daniel.jpeg';
+import sepehrPhoto from '../assets/team/sepehr.jpeg';
+
 const team = [
 	{
 		name: 'Soma Chénard-Koné',
@@ -6,7 +14,7 @@ const team = [
 		focus: 'Strategy, direction & coordination',
 		bio: 'Founder. Director of Projects at IEEE Concordia and former VP IT at the CSME Concordia chapter. Originated MidMon and assembled the team, recruiting each member for a distinct technical discipline.',
 		hue: '#2dd4bf',
-		initials: 'SC',
+		photo: somaPhoto,
 		linkedin: 'https://www.linkedin.com/in/soma-chenardkone/',
 		email: 'so_chena@live.concordia.ca',
 	},
@@ -16,7 +24,7 @@ const team = [
 		focus: 'FPGA architecture · technical lead',
 		bio: 'VP Marketing at IEEE Concordia. Past role at Natural Resources Canada gave her direct exposure to how government and industrial buyers evaluate new hardware. Leads the architecture of the FPGA-NPU codesign that constitutes the platform\u2019s moat.',
 		hue: '#60a5fa',
-		initials: 'AK',
+		photo: anabellaPhoto,
 		linkedin: 'https://www.linkedin.com/in/anabella-kowalski-3552k',
 		email: 'an_kowal@live.concordia.ca',
 	},
@@ -24,9 +32,9 @@ const team = [
 		name: 'Nirmal Patel',
 		role: 'CPO',
 		focus: 'Product · edge ML model lead',
-		bio: 'VP of Projects at IEEE Concordia — the senior project leadership role in the club. Leads edge ML: training, quantizing, and deploying transformer-class anomaly detection models onto the Hailo-8L NPU.',
+		bio: 'VP of Projects at IEEE Concordia — the senior project leadership role in the club. Leads edge ML: training, quantizing, and deploying transformer-class anomaly detection models onto the inference target.',
 		hue: '#34d399',
-		initials: 'NP',
+		photo: nirmalPhoto,
 		linkedin: 'https://www.linkedin.com/in/nirmalpatelxyz/',
 		email: 'pa_nirm@live.concordia.ca',
 	},
@@ -36,9 +44,9 @@ const team = [
 		focus: 'RF & signal processing · grants (MDA Space)',
 		bio: 'Industry intern at MDA Space / Airbus Montréal — one of the most demanding embedded electronics environments in the Quebec aerospace cluster. Handles RF, signal processing, and the non-dilutive funding pipeline (IRAP, SR&ED, CRIC).',
 		hue: '#f59e0b',
-		initials: 'EK',
+		photo: eithanPhoto,
 		linkedin: 'https://www.linkedin.com/in/eithan-kuri-valdovinos/',
-		email: 'eithan@concordia.ca',
+		email: 'e_kuriva@live.concordia.ca',
 	},
 	{
 		name: 'Daniel Akbari',
@@ -46,7 +54,7 @@ const team = [
 		focus: 'Edge inference & developer infrastructure',
 		bio: 'Dual internships in project management and data analysis — an unusually broad profile for an undergraduate engineer. Owns customer discovery, pilot negotiation, and the financial model alongside core engineering work.',
 		hue: '#c084fc',
-		initials: 'DA',
+		photo: danielPhoto,
 		linkedin: 'https://www.linkedin.com/in/daniel-akbari',
 		email: 'daniel.akbari@mail.concordia.ca',
 	},
@@ -56,7 +64,7 @@ const team = [
 		focus: 'Business development & customer discovery',
 		bio: 'Director of Projects at IEEE Concordia since summer 2024, leading multi-person technical teams through full project lifecycles. Owns embedded systems integration and the go-to-market motion into Quebec plants.',
 		hue: '#f472b6',
-		initials: 'SG',
+		photo: sepehrPhoto,
 		linkedin: 'https://www.linkedin.com/in/sepehr-ghasemzadeh-moghaddam/',
 		email: 'se_gha@live.concordia.ca',
 	},
@@ -85,14 +93,21 @@ const team = [
 					<article data-reveal data-reveal-delay={String((i % 3) + 1)} class="card group relative overflow-hidden p-6">
 						<span class="glow-ring" />
 						<div class="flex items-start gap-4">
-							<!-- Photo placeholder slot — easy to swap with a real <img /> later -->
 							<div
-								class="relative inline-flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl text-base font-semibold text-white"
-								style={`background: linear-gradient(135deg, ${member.hue}33, ${member.hue}11); border: 1px solid ${member.hue}55;`}
-								aria-label={`${member.name} avatar`}
+								class="relative inline-flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl"
+								style={`border: 1px solid ${member.hue}55;`}
 							>
-								<span class="absolute inset-0 -z-10 rounded-2xl opacity-50 blur-md" style={`background: ${member.hue};`} />
-								{member.initials}
+								<span
+									class="absolute inset-0 -z-10 rounded-2xl opacity-40 blur-md"
+									style={`background: ${member.hue};`}
+								/>
+								<Image
+									src={member.photo}
+									alt={`Portrait of ${member.name}`}
+									width={128}
+									height={128}
+									class="h-full w-full object-cover"
+								/>
 							</div>
 							<div class="min-w-0 flex-1">
 								<h3 class="text-base font-semibold text-white">{member.name}</h3>
@@ -133,7 +148,6 @@ const team = [
 			}
 		</div>
 
-		<!-- Closer -->
 		<div data-reveal class="mx-auto mt-14 max-w-3xl text-center text-sm text-[var(--color-text-muted)]">
 			Every member has held a named, elected leadership role and delivered under real
 			accountability. <span class="text-white">Track record over titles.</span>
