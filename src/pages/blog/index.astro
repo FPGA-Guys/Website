@@ -16,8 +16,8 @@ const posts = (await getCollection('blog')).sort(
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Blog — ${SITE_TITLE}`}
-			description="Engineering notes from the silicon edge — FPGA, AI compilers, and reconfigurable computing."
+			title={`Updates . ${SITE_TITLE}`}
+			description="Field notes from the MidMon build."
 		/>
 	</head>
 	<body>
@@ -25,23 +25,21 @@ const posts = (await getCollection('blog')).sort(
 		<main class="pt-36 md:pt-44">
 			<section class="container-x">
 				<div class="mx-auto max-w-3xl text-center">
-					<span class="section-eyebrow">Engineering blog</span>
-					<h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
-						<span class="text-gradient">Field notes</span> from the silicon edge.
+					<span class="section-eyebrow">Updates</span>
+					<h1 class="mt-4 text-4xl font-semibold tracking-tight text-white md:text-6xl">
+						<span class="text-accent">Field notes</span> from the build.
 					</h1>
 					<p class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-						Deep-dives on FPGA design, ML compilers, and what it takes to ship reconfigurable
-						compute into production.
+						Written by the team.
 					</p>
 				</div>
 
 				<ul class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 					{
-						posts.map((post, i) => (
+						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`} class="card group block overflow-hidden p-0">
-									<span class="glow-ring" />
-									<div class="relative h-48 overflow-hidden">
+									<div class="relative h-48 overflow-hidden border-b border-white/5 bg-[#07101f]">
 										{post.data.heroImage ? (
 											<Image
 												width={720}
@@ -51,19 +49,14 @@ const posts = (await getCollection('blog')).sort(
 												class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
 											/>
 										) : (
-											<div class="absolute inset-0 bg-gradient-to-br from-[#1a1f3a] via-[#0e1220] to-[#0a0d16]" />
+											<div class="absolute inset-0 bg-grid opacity-30" />
 										)}
-										<div class="absolute inset-0 bg-grid opacity-30" />
-										<div
-											class="absolute inset-0"
-											style={`background: radial-gradient(circle at ${20 + (i * 31) % 80}% ${30 + (i * 17) % 60}%, rgba(124,92,255,0.35), transparent 60%);`}
-										/>
 									</div>
 									<div class="p-6">
 										<p class="text-xs tracking-widest text-[var(--color-text-dim)] uppercase">
 											<FormattedDate date={post.data.pubDate} />
 										</p>
-										<h2 class="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-[#c7c1ff]">
+										<h2 class="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-[#5eead4]">
 											{post.data.title}
 										</h2>
 										{post.data.description && (

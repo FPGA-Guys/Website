@@ -1,252 +1,196 @@
 ---
 const stats = [
-	{ value: '$1.4T', label: 'Lost annually to unplanned downtime' },
-	{ value: '30,000+', label: 'Mid-market plants in CA & US Northeast' },
-	{ value: '<$10K', label: 'Per production line, fully deployed' },
-	{ value: '< 5W', label: 'On-device AI inference, no cloud' },
+	{ value: '$1.4T', label: 'lost yearly to unplanned downtime' },
+	{ value: '30,000+', label: 'mid-market plants underserved' },
+	{ value: '<$10K', label: 'per production line, deployed' },
+	{ value: '< 5W', label: 'on-device, no cloud needed' },
 ];
 ---
 
-<section id="hero" class="relative isolate overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-	<!-- Background layers -->
-	<div class="pointer-events-none absolute inset-0 -z-20">
-		<div
-			class="absolute -top-40 left-1/2 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.3),transparent_60%)] blur-3xl"
-		>
-		</div>
-		<div
-			class="animate-[pulseSlow_8s_ease-in-out_infinite] absolute top-1/3 -left-32 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(96,165,250,0.22),transparent_60%)] blur-3xl"
-		>
-		</div>
-		<div
-			class="animate-[pulseSlow_10s_ease-in-out_infinite] absolute right-0 top-10 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.18),transparent_60%)] blur-3xl"
-		>
-		</div>
-	</div>
-	<div class="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-60"></div>
-	<div class="pointer-events-none absolute inset-0 -z-10 opacity-[0.04] bg-noise"></div>
+<section id="hero" class="relative isolate overflow-hidden pt-36 pb-24 md:pt-44 md:pb-28">
+	<div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh] bg-grid bg-grid-fade opacity-50"></div>
 
 	<div class="container-x relative">
 		<div class="mx-auto max-w-4xl text-center">
-			<div data-reveal class="mb-7 flex justify-center">
+			<div data-reveal class="mb-6 flex justify-center">
 				<span class="section-eyebrow">
-					<span class="relative flex h-1.5 w-1.5">
-						<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2dd4bf] opacity-70"></span>
-						<span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#2dd4bf]"></span>
-					</span>
-					Phase 1 · Gina Cody Innovation Fund
+					<span class="h-1.5 w-1.5 rounded-full bg-[#2dd4bf]"></span>
+					Phase 1 in progress
 				</span>
 			</div>
 
 			<h1
 				data-reveal
 				data-reveal-delay="1"
-				class="text-4xl font-semibold tracking-tight md:text-6xl lg:text-[4.5rem]"
+				class="text-4xl font-semibold tracking-tight text-white md:text-6xl lg:text-[4.25rem]"
 			>
-				<span class="text-white">Predictive maintenance,</span>
+				Predictive maintenance
 				<br class="hidden sm:block" />
-				<span class="text-gradient">finally built for the mid-market.</span>
+				built for the <span class="text-accent">mid-market</span>.
 			</h1>
 
 			<p
 				data-reveal
 				data-reveal-delay="2"
-				class="mx-auto mt-7 max-w-2xl text-base text-[var(--color-text-muted)] md:text-lg"
+				class="mx-auto mt-6 max-w-2xl text-base text-[var(--color-text-muted)] md:text-lg"
 			>
-				MidMon is the first AI-native condition monitoring platform engineered for plants the
-				incumbents ignore. Self-installing FPGA-powered sensors. On-device anomaly detection. A
-				price tag a plant manager can sign off on alone.
+				MidMon detects bearing faults, imbalance, and electrical stress before machines fail.
+				Self-installing sensors. On-device AI. Under $10K per line.
 			</p>
 
-			<div data-reveal data-reveal-delay="3" class="mt-9 flex flex-wrap items-center justify-center gap-3">
+			<div data-reveal data-reveal-delay="3" class="mt-8 flex flex-wrap items-center justify-center gap-3">
 				<a href="#contact" class="btn btn-primary">
-					<span>Talk to the team</span>
+					Talk to the team
 					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
 						<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
 				</a>
-				<a href="#how" class="btn btn-ghost">
-					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-						<path d="M4 4l8 4-8 4V4z" fill="currentColor"></path>
-					</svg>
-					See how it works
-				</a>
+				<a href="#how" class="btn btn-ghost">See how it works</a>
 			</div>
+		</div>
 
-			<!-- Live monitoring card -->
-			<div data-reveal data-reveal-delay="4" class="mx-auto mt-16 max-w-4xl">
-				<div
-					id="hero-monitor"
-					data-tone="green"
-					class="card animate-[float_8s_ease-in-out_infinite] relative overflow-hidden p-0 text-left"
-				>
-					<span class="glow-ring"></span>
-					<div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 px-5 py-3">
-						<div class="flex items-center gap-2">
-							<span class="relative flex h-2 w-2">
-								<span
-									id="hm-status-ping"
-									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"
-								></span>
-								<span
-									id="hm-status-dot"
-									class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"
-								></span>
-							</span>
-							<span class="text-xs font-medium tracking-wide text-white">live · plant-04 · line-2</span>
-						</div>
-						<span class="hidden text-[10px] font-medium tracking-widest text-[var(--color-text-dim)] uppercase md:inline">
-							MidMon · sensor-node 0x4A2
+		<!-- Live monitoring card (wider, no auto-trigger button) -->
+		<div data-reveal data-reveal-delay="4" class="mx-auto mt-14 max-w-5xl">
+			<div
+				id="hero-monitor"
+				data-tone="green"
+				class="card relative overflow-hidden p-0 text-left"
+			>
+				<div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 px-5 py-3">
+					<div class="flex items-center gap-2">
+						<span class="relative flex h-2 w-2">
+							<span
+								id="hm-status-ping"
+								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"
+							></span>
+							<span
+								id="hm-status-dot"
+								class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"
+							></span>
 						</span>
-						<div class="flex items-center gap-2">
-							<span class="hidden text-[10px] text-[var(--color-text-dim)] md:inline">FPGA · <span id="hm-power">4.1 W</span></span>
-							<button
-								id="hm-trigger"
-								type="button"
-								class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] font-medium tracking-wide text-white transition-colors hover:border-[#f59e0b]/50 hover:bg-[#f59e0b]/10 hover:text-[#f59e0b]"
-							>
-								<svg class="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-									<path d="M4 4l8 4-8 4V4z" fill="currentColor"></path>
-								</svg>
-								Trigger fault demo
-							</button>
+						<span class="text-xs font-medium text-white">live . plant 04 . line 2</span>
+					</div>
+					<span class="hidden text-[10px] font-medium tracking-widest text-[var(--color-text-dim)] uppercase md:inline">
+						MidMon . sensor node 0x4A2
+					</span>
+					<span class="text-[10px] text-[var(--color-text-dim)]">FPGA . <span id="hm-power">4.1 W</span></span>
+				</div>
+
+				<div class="grid grid-cols-1 gap-0 md:grid-cols-[1.5fr_1fr]">
+					<!-- Streaming waveform -->
+					<div class="relative border-b border-white/5 p-5 md:border-r md:border-b-0">
+						<div class="flex items-center justify-between text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
+							<span>Vibration . 0 to 2 kHz</span>
+							<span id="hm-baseline-label" class="text-[#5eead4]">baseline locked</span>
+						</div>
+						<svg viewBox="0 0 600 200" class="mt-3 h-40 w-full md:h-48" preserveAspectRatio="none">
+							<defs>
+								<linearGradient id="hm-line" x1="0" y1="0" x2="1" y2="0">
+									<stop id="hm-line-stop-1" offset="0%" stop-color="#2dd4bf"></stop>
+									<stop id="hm-line-stop-2" offset="100%" stop-color="#60a5fa"></stop>
+								</linearGradient>
+							</defs>
+
+							<g stroke="rgba(148,197,220,0.08)" stroke-width="1">
+								<line x1="0" y1="50" x2="600" y2="50"></line>
+								<line x1="0" y1="100" x2="600" y2="100"></line>
+								<line x1="0" y1="150" x2="600" y2="150"></line>
+							</g>
+
+							<polyline
+								id="hm-trace"
+								fill="none"
+								stroke="url(#hm-line)"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								points=""
+							></polyline>
+
+							<circle id="hm-edge" cx="600" cy="100" r="3" fill="#2dd4bf"></circle>
+						</svg>
+
+						<div class="mt-3 grid grid-cols-4 gap-3 text-xs">
+							<div>
+								<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">RMS</div>
+								<div class="mt-0.5 font-mono text-white" id="hm-rms">2.34 g</div>
+							</div>
+							<div>
+								<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Peak</div>
+								<div class="mt-0.5 font-mono text-white" id="hm-peak">4.71 g</div>
+							</div>
+							<div>
+								<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Temp</div>
+								<div class="mt-0.5 font-mono text-white" id="hm-temp">52.1 °C</div>
+							</div>
+							<div>
+								<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">RPM</div>
+								<div class="mt-0.5 font-mono text-white" id="hm-rpm">1,742</div>
+							</div>
 						</div>
 					</div>
 
-					<div class="grid grid-cols-1 gap-0 md:grid-cols-[1.4fr_1fr]">
-						<!-- Streaming waveform -->
-						<div class="relative border-b border-white/5 p-5 md:border-r md:border-b-0">
+					<!-- Inference status -->
+					<div class="space-y-4 p-5">
+						<div>
 							<div class="flex items-center justify-between text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
-								<span>Vibration spectrum · 0–2 kHz</span>
-								<span id="hm-baseline-label" class="text-[#2dd4bf] transition-colors">baseline locked</span>
+								<span>Anomaly score</span>
+								<span id="hm-tone-label" class="text-emerald-300">healthy</span>
 							</div>
-							<svg viewBox="0 0 600 160" class="mt-3 h-32 w-full" preserveAspectRatio="none">
-								<defs>
-									<linearGradient id="hm-fill" x1="0" y1="0" x2="0" y2="1">
-										<stop id="hm-fill-stop" offset="0%" stop-color="#2dd4bf" stop-opacity="0.32" />
-										<stop offset="100%" stop-color="#2dd4bf" stop-opacity="0" />
-									</linearGradient>
-									<linearGradient id="hm-line" x1="0" y1="0" x2="1" y2="0">
-										<stop id="hm-line-stop-1" offset="0%" stop-color="#2dd4bf" />
-										<stop id="hm-line-stop-2" offset="100%" stop-color="#60a5fa" />
-									</linearGradient>
-								</defs>
-
-								<!-- baseline grid -->
-								<g stroke="rgba(148,197,220,0.08)" stroke-width="1">
-									<line x1="0" y1="40" x2="600" y2="40"></line>
-									<line x1="0" y1="80" x2="600" y2="80"></line>
-									<line x1="0" y1="120" x2="600" y2="120"></line>
-								</g>
-
-								<!-- baseline envelope (expected signal) -->
-								<path
-									id="hm-baseline"
-									d="M0,90 C40,82 80,98 120,86 C160,72 200,100 240,84 C280,70 320,96 360,82 C400,70 440,94 480,86 C520,78 560,92 600,84 L600,160 L0,160 Z"
-									fill="url(#hm-fill)"
-									opacity="0.4"
-								></path>
-
-								<!-- Live streaming trace (polyline, JS-driven) -->
-								<polyline
-									id="hm-trace"
-									fill="none"
-									stroke="url(#hm-line)"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									points=""
-								></polyline>
-
-								<!-- Edge marker that pulses on new sample -->
-								<circle id="hm-edge" cx="600" cy="80" r="3" fill="#2dd4bf">
-									<animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"></animate>
-								</circle>
-							</svg>
-
-							<div class="mt-2 grid grid-cols-3 gap-3 text-xs">
-								<div>
-									<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">RMS</div>
-									<div class="mt-0.5 font-mono text-white transition-colors" id="hm-rms">2.34 g</div>
-								</div>
-								<div>
-									<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Peak</div>
-									<div class="mt-0.5 font-mono text-white transition-colors" id="hm-peak">4.71 g</div>
-								</div>
-								<div>
-									<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Temp</div>
-									<div class="mt-0.5 font-mono text-white transition-colors" id="hm-temp">52.1 °C</div>
-								</div>
+							<div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/5">
+								<div
+									id="hm-score-bar"
+									class="h-full rounded-full"
+									style="width: 8%; background: #2dd4bf; transition: width 250ms ease, background-color 250ms ease;"
+								></div>
+							</div>
+							<div class="mt-1 flex justify-between text-[10px] text-[var(--color-text-dim)]">
+								<span>0.00</span>
+								<span id="hm-score-num" class="font-mono text-white">0.08</span>
+								<span>1.00</span>
 							</div>
 						</div>
 
-						<!-- Inference status -->
-						<div class="space-y-4 p-5">
-							<div>
-								<div class="flex items-center justify-between text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
-									<span>Anomaly score</span>
-									<span id="hm-tone-label" class="text-emerald-300 transition-colors">healthy</span>
-								</div>
-								<div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/5">
-									<div
-										id="hm-score-bar"
-										class="h-full rounded-full transition-[width,background] duration-700 ease-out"
-										style="width: 8%; background: linear-gradient(90deg,#2dd4bf,#34d399);"
-									></div>
-								</div>
-								<div class="mt-1 flex justify-between text-[10px] text-[var(--color-text-dim)]">
-									<span>0.00</span>
-									<span id="hm-score-num" class="font-mono text-white transition-colors">0.08</span>
-									<span>1.00</span>
-								</div>
+						<div
+							id="hm-asset"
+							class="rounded-xl border border-white/5 bg-white/[0.02] p-3 transition-colors"
+						>
+							<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Asset</div>
+							<div class="mt-1 text-sm text-white">Mixer pump <span class="text-[var(--color-text-muted)]">. M-04-B</span></div>
+							<div class="mt-3 grid grid-cols-2 gap-y-1.5 gap-x-2 text-[11px]">
+								<div class="text-[var(--color-text-muted)]">Baseline</div>
+								<div class="text-right font-mono text-white">48h</div>
+								<div class="text-[var(--color-text-muted)]">Model</div>
+								<div class="text-right font-mono text-white">rot-anom-v3</div>
+								<div class="text-[var(--color-text-muted)]">Inference</div>
+								<div id="hm-inference" class="text-right font-mono text-[#5eead4]">1.9 ms</div>
 							</div>
+						</div>
 
-							<div
-								id="hm-asset"
-								class="rounded-xl border border-white/5 bg-white/[0.02] p-3 transition-colors"
-							>
-								<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Asset</div>
-								<div class="mt-1 text-sm text-white">
-									Mixer pump &mdash; <span class="text-[var(--color-text-muted)]">M-04-B</span>
-								</div>
-								<div class="mt-3 grid grid-cols-2 gap-2 text-[11px]">
-									<div class="text-[var(--color-text-muted)]">Baseline age</div>
-									<div class="text-right font-mono text-white">48h</div>
-									<div class="text-[var(--color-text-muted)]">Model</div>
-									<div class="text-right font-mono text-white">rot-anom-v3</div>
-									<div class="text-[var(--color-text-muted)]">Inference</div>
-									<div id="hm-inference" class="text-right font-mono text-[#2dd4bf] transition-colors">1.9 ms</div>
-								</div>
-							</div>
-
-							<div
-								id="hm-alert"
-								class="flex items-start gap-2 text-xs text-[var(--color-text-muted)] transition-colors"
-							>
-								<svg id="hm-alert-icon" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#34d399] transition-colors" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-									<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
-								</svg>
-								<span id="hm-alert-text">No fault detected &mdash; <span class="text-[var(--color-text-dim)]">last alert 14 days ago</span></span>
-							</div>
+						<div class="flex items-start gap-2 text-xs text-[var(--color-text-muted)]">
+							<svg id="hm-alert-icon" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+							<span id="hm-alert-text">No fault detected. <span class="text-[var(--color-text-dim)]">Last alert 14 days ago.</span></span>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- Stat strip -->
-			<div data-reveal data-reveal-delay="5" class="mt-14">
-				<div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-4">
-					{
-						stats.map((stat) => (
-							<div class="bg-[var(--color-bg)] p-5 text-left">
-								<div class="text-2xl font-semibold text-white md:text-3xl">{stat.value}</div>
-								<div class="mt-1 text-[11px] tracking-widest text-[var(--color-text-dim)] uppercase">
-									{stat.label}
-								</div>
+		<!-- Stat strip -->
+		<div data-reveal data-reveal-delay="5" class="mx-auto mt-12 max-w-5xl">
+			<div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-4">
+				{
+					stats.map((stat) => (
+						<div class="bg-[var(--color-bg)] p-5 text-left">
+							<div class="text-2xl font-semibold text-white md:text-3xl">{stat.value}</div>
+							<div class="mt-1 text-[11px] tracking-widest text-[var(--color-text-dim)] uppercase">
+								{stat.label}
 							</div>
-						))
-					}
-				</div>
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>
@@ -255,333 +199,331 @@ const stats = [
 <script is:inline>
 	(function () {
 		const monitor = document.getElementById('hero-monitor');
-		if (!monitor) return;
-
-		// Already initialized? (handles HMR / View Transitions)
-		if (monitor.dataset.bound === '1') return;
+		if (!monitor || monitor.dataset.bound === '1') return;
 		monitor.dataset.bound = '1';
 
+		const $ = (id) => document.getElementById(id);
 		const els = {
-			trace: document.getElementById('hm-trace'),
-			edge: document.getElementById('hm-edge'),
-			lineStop1: document.getElementById('hm-line-stop-1'),
-			lineStop2: document.getElementById('hm-line-stop-2'),
-			fillStop: document.getElementById('hm-fill-stop'),
-			statusDot: document.getElementById('hm-status-dot'),
-			statusPing: document.getElementById('hm-status-ping'),
-			toneLabel: document.getElementById('hm-tone-label'),
-			scoreBar: document.getElementById('hm-score-bar'),
-			scoreNum: document.getElementById('hm-score-num'),
-			alertIcon: document.getElementById('hm-alert-icon'),
-			alertText: document.getElementById('hm-alert-text'),
-			alertWrap: document.getElementById('hm-alert'),
-			asset: document.getElementById('hm-asset'),
-			rms: document.getElementById('hm-rms'),
-			peak: document.getElementById('hm-peak'),
-			temp: document.getElementById('hm-temp'),
-			power: document.getElementById('hm-power'),
-			inference: document.getElementById('hm-inference'),
-			baselineLabel: document.getElementById('hm-baseline-label'),
-			trigger: document.getElementById('hm-trigger'),
+			trace: $('hm-trace'),
+			edge: $('hm-edge'),
+			stop1: $('hm-line-stop-1'),
+			stop2: $('hm-line-stop-2'),
+			statusDot: $('hm-status-dot'),
+			statusPing: $('hm-status-ping'),
+			toneLabel: $('hm-tone-label'),
+			scoreBar: $('hm-score-bar'),
+			scoreNum: $('hm-score-num'),
+			alertIcon: $('hm-alert-icon'),
+			alertText: $('hm-alert-text'),
+			asset: $('hm-asset'),
+			rms: $('hm-rms'),
+			peak: $('hm-peak'),
+			temp: $('hm-temp'),
+			rpm: $('hm-rpm'),
+			power: $('hm-power'),
+			inference: $('hm-inference'),
+			baselineLabel: $('hm-baseline-label'),
 		};
 
-		// Streaming waveform config
-		const N = 140; // sample count visible
+		// Streaming waveform geometry
+		const N = 160;
 		const W = 600;
-		const H = 160;
-		const CENTER_Y = 85;
+		const CENTER = 100;
+		const TOP_LIMIT = 10;
+		const BOT_LIMIT = 190;
 
-		// Fault state machine — modeled on MidMon's actual fault classes
+		// Eight fault classes, distinct waveform signatures
 		const states = [
 			{
 				id: 'healthy',
-				toneLabel: 'healthy',
-				toneColor: 'rgb(110, 231, 183)',
-				dotClasses: ['bg-emerald-400'],
-				baselineTxt: 'baseline locked',
-				baselineColor: '#2dd4bf',
-				alertIconColor: 'text-[#34d399]',
-				alertText: 'No fault detected &mdash; <span class="text-[var(--color-text-dim)]">last alert 14 days ago</span>',
-				rms: '2.34 g',
-				peak: '4.71 g',
-				temp: '52.1 °C',
-				power: '4.1 W',
-				inference: '1.9 ms',
-				score: 0.08,
-				gradient: ['#2dd4bf', '#60a5fa'],
-				barGradient: 'linear-gradient(90deg,#2dd4bf,#34d399)',
-				fillColor: '#2dd4bf',
-				sineAmp: 7,
-				sineFreq: 0.12,
-				secondaryAmp: 3,
-				secondaryFreq: 0.34,
-				noiseAmp: 4,
-				spikeChance: 0,
-				spikeAmp: 0,
-				dwellMs: 5200,
-				assetBorder: 'border-white/5',
+				tone: 'green',
+				label: 'healthy',
+				baseline: 'baseline locked',
+				alert: 'No fault detected. <span class="text-[var(--color-text-dim)]">Last alert 14 days ago.</span>',
+				rms: '2.34 g', peak: '4.71 g', temp: '52.1 °C', rpm: '1,742', power: '4.1 W', inference: '1.9 ms',
+				score: 0.08, color: '#2dd4bf', dotClass: 'bg-emerald-400', toneClass: 'text-emerald-300',
+				sineAmp: 7, sineFreq: 0.13, harmAmp: 3, harmFreq: 0.36,
+				noise: 4, spikeChance: 0, spikeAmp: 0, envWobble: 0,
 			},
 			{
 				id: 'imbalance',
-				toneLabel: 'shaft imbalance',
-				toneColor: 'rgb(252, 211, 77)',
-				dotClasses: ['bg-amber-400'],
-				baselineTxt: '1× rotational peak +4.2σ',
-				baselineColor: '#fbbf24',
-				alertIconColor: 'text-[#fbbf24]',
-				alertText: '<span class="text-white">Shaft imbalance</span> &mdash; periodic 1× peak above learned baseline',
-				rms: '5.84 g',
-				peak: '11.32 g',
-				temp: '54.6 °C',
-				power: '4.4 W',
-				inference: '2.1 ms',
-				score: 0.47,
-				gradient: ['#fbbf24', '#f59e0b'],
-				barGradient: 'linear-gradient(90deg,#2dd4bf,#fbbf24)',
-				fillColor: '#fbbf24',
-				sineAmp: 36,
-				sineFreq: 0.13,
-				secondaryAmp: 6,
-				secondaryFreq: 0.5,
-				noiseAmp: 6,
-				spikeChance: 0,
-				spikeAmp: 0,
-				dwellMs: 5200,
-				assetBorder: 'border-[#fbbf24]/30',
+				tone: 'amber',
+				label: 'imbalance',
+				baseline: '1× rotational peak +4.2σ',
+				alert: 'Shaft imbalance. <span class="text-[var(--color-text-dim)]">Periodic 1× peak above baseline.</span>',
+				rms: '5.84 g', peak: '11.32 g', temp: '54.6 °C', rpm: '1,738', power: '4.4 W', inference: '2.1 ms',
+				score: 0.42, color: '#fbbf24', dotClass: 'bg-amber-400', toneClass: 'text-amber-300',
+				sineAmp: 40, sineFreq: 0.13, harmAmp: 5, harmFreq: 0.5,
+				noise: 6, spikeChance: 0, spikeAmp: 0, envWobble: 0,
 			},
 			{
-				id: 'overload',
-				toneLabel: 'overload',
-				toneColor: 'rgb(252, 165, 165)',
-				dotClasses: ['bg-red-400'],
-				baselineTxt: 'current +52% over baseline',
-				baselineColor: '#f87171',
-				alertIconColor: 'text-[#f87171]',
-				alertText: '<span class="text-white">Overload</span> &mdash; motor current +52% over learned baseline',
-				rms: '8.93 g',
-				peak: '17.41 g',
-				temp: '71.4 °C',
-				power: '4.7 W',
-				inference: '2.3 ms',
-				score: 0.81,
-				gradient: ['#f87171', '#ef4444'],
-				barGradient: 'linear-gradient(90deg,#2dd4bf,#fbbf24,#ef4444)',
-				fillColor: '#ef4444',
-				sineAmp: 28,
-				sineFreq: 0.1,
-				secondaryAmp: 14,
-				secondaryFreq: 0.42,
-				noiseAmp: 16,
-				spikeChance: 0.06,
-				spikeAmp: 28,
-				dwellMs: 5200,
-				assetBorder: 'border-[#ef4444]/40',
+				id: 'friction_load',
+				tone: 'amber',
+				label: 'friction load',
+				baseline: 'current +28%, temp rising',
+				alert: 'Friction load. <span class="text-[var(--color-text-dim)]">Elevated current draw and bearing temp.</span>',
+				rms: '4.92 g', peak: '8.21 g', temp: '63.4 °C', rpm: '1,652', power: '4.6 W', inference: '2.0 ms',
+				score: 0.51, color: '#fbbf24', dotClass: 'bg-amber-400', toneClass: 'text-amber-300',
+				sineAmp: 18, sineFreq: 0.1, harmAmp: 12, harmFreq: 0.28,
+				noise: 12, spikeChance: 0, spikeAmp: 0, envWobble: 0,
 			},
 			{
 				id: 'loose_mount',
-				toneLabel: 'loose mount',
-				toneColor: 'rgb(252, 211, 77)',
-				dotClasses: ['bg-amber-400'],
-				baselineTxt: 'chaotic vibration signature',
-				baselineColor: '#fbbf24',
-				alertIconColor: 'text-[#fbbf24]',
-				alertText: '<span class="text-white">Loose mounting</span> &mdash; chaotic vibration signature across all axes',
-				rms: '7.21 g',
-				peak: '14.83 g',
-				temp: '56.2 °C',
-				power: '4.3 W',
-				inference: '2.0 ms',
-				score: 0.62,
-				gradient: ['#fbbf24', '#f59e0b'],
-				barGradient: 'linear-gradient(90deg,#2dd4bf,#fbbf24)',
-				fillColor: '#fbbf24',
-				sineAmp: 12,
-				sineFreq: 0.14,
-				secondaryAmp: 8,
-				secondaryFreq: 0.55,
-				noiseAmp: 24,
-				spikeChance: 0.16,
-				spikeAmp: 22,
-				dwellMs: 5200,
-				assetBorder: 'border-[#fbbf24]/30',
+				tone: 'amber',
+				label: 'loose mount',
+				baseline: 'chaotic broadband',
+				alert: 'Loose mounting. <span class="text-[var(--color-text-dim)]">Chaotic vibration across all axes.</span>',
+				rms: '7.21 g', peak: '14.83 g', temp: '56.2 °C', rpm: '1,740', power: '4.3 W', inference: '2.0 ms',
+				score: 0.6, color: '#fbbf24', dotClass: 'bg-amber-400', toneClass: 'text-amber-300',
+				sineAmp: 10, sineFreq: 0.16, harmAmp: 6, harmFreq: 0.55,
+				noise: 26, spikeChance: 0.18, spikeAmp: 22, envWobble: 0,
+			},
+			{
+				id: 'misalignment',
+				tone: 'amber',
+				label: 'misalignment',
+				baseline: '2× harmonic flagged',
+				alert: 'Coupler misalignment. <span class="text-[var(--color-text-dim)]">Strong 2× harmonic, current ripple.</span>',
+				rms: '6.43 g', peak: '10.18 g', temp: '55.8 °C', rpm: '1,735', power: '4.5 W', inference: '2.1 ms',
+				score: 0.55, color: '#fbbf24', dotClass: 'bg-amber-400', toneClass: 'text-amber-300',
+				sineAmp: 14, sineFreq: 0.12, harmAmp: 30, harmFreq: 0.24,
+				noise: 8, spikeChance: 0, spikeAmp: 0, envWobble: 0,
+			},
+			{
+				id: 'overload',
+				tone: 'red',
+				label: 'overload',
+				baseline: 'current +52% sustained',
+				alert: 'Overload. <span class="text-[var(--color-text-dim)]">Motor current +52% over baseline.</span>',
+				rms: '8.93 g', peak: '17.41 g', temp: '71.4 °C', rpm: '1,521', power: '4.7 W', inference: '2.3 ms',
+				score: 0.81, color: '#ef4444', dotClass: 'bg-red-400', toneClass: 'text-red-300',
+				sineAmp: 30, sineFreq: 0.1, harmAmp: 16, harmFreq: 0.42,
+				noise: 18, spikeChance: 0.08, spikeAmp: 30, envWobble: 0,
+			},
+			{
+				id: 'rpm_instability',
+				tone: 'red',
+				label: 'rpm instability',
+				baseline: 'encoder ripple, +12% std',
+				alert: 'RPM instability. <span class="text-[var(--color-text-dim)]">Encoder ripple, PWM disturbance.</span>',
+				rms: '6.12 g', peak: '13.04 g', temp: '57.9 °C', rpm: '1,510–1,920', power: '4.4 W', inference: '2.2 ms',
+				score: 0.72, color: '#ef4444', dotClass: 'bg-red-400', toneClass: 'text-red-300',
+				sineAmp: 28, sineFreq: 0.14, harmAmp: 8, harmFreq: 0.38,
+				noise: 10, spikeChance: 0, spikeAmp: 0, envWobble: 0.85,
+			},
+			{
+				id: 'voltage_drop',
+				tone: 'red',
+				label: 'voltage drop',
+				baseline: 'rail at 10.6 V (-12%)',
+				alert: 'Voltage drop. <span class="text-[var(--color-text-dim)]">Supply rail dipping below 11.0 V.</span>',
+				rms: '4.21 g', peak: '9.12 g', temp: '58.6 °C', rpm: '1,486', power: '3.9 W', inference: '2.1 ms',
+				score: 0.68, color: '#ef4444', dotClass: 'bg-red-400', toneClass: 'text-red-300',
+				sineAmp: 22, sineFreq: 0.11, harmAmp: 7, harmFreq: 0.34,
+				noise: 8, spikeChance: 0, spikeAmp: 0, envWobble: 0, voltageDrop: true,
 			},
 		];
 
-		// Animation state
-		let currentState = states[0];
-		let targetState = states[0];
-		let transitionStart = performance.now();
-		let transitionMs = 600;
-		let lastStateSwitch = performance.now();
+		const samples = new Array(N).fill(CENTER);
 		let stateIdx = 0;
+		let cur = states[0];
+		let prev = states[0];
+		let transitionStart = performance.now();
+		let stateStart = performance.now();
+		let appliedTone = null;
 		let phase = 0;
-		const samples = new Array(N).fill(CENTER_Y);
+		let envPhase = 0;
 
-		// Utilities
+		// Timing
+		const DWELL = 1500;        // ms in each state
+		const TRANSITION = 280;    // ms to morph between states
+		const SAMPLE_INTERVAL = 33; // ms (~30 fps)
+
 		const lerp = (a, b, t) => a + (b - a) * t;
 		const easeInOutCubic = (t) =>
 			t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-		function interpolated() {
-			const t = easeInOutCubic(
-				Math.min(1, (performance.now() - transitionStart) / transitionMs)
-			);
+		function morphedParams() {
+			const raw = (performance.now() - transitionStart) / TRANSITION;
+			const t = easeInOutCubic(Math.max(0, Math.min(1, raw)));
 			return {
-				sineAmp: lerp(currentState.sineAmp, targetState.sineAmp, t),
-				sineFreq: lerp(currentState.sineFreq, targetState.sineFreq, t),
-				secondaryAmp: lerp(currentState.secondaryAmp, targetState.secondaryAmp, t),
-				secondaryFreq: lerp(currentState.secondaryFreq, targetState.secondaryFreq, t),
-				noiseAmp: lerp(currentState.noiseAmp, targetState.noiseAmp, t),
-				spikeChance: lerp(currentState.spikeChance, targetState.spikeChance, t),
-				spikeAmp: lerp(currentState.spikeAmp, targetState.spikeAmp, t),
-				score: lerp(currentState.score, targetState.score, t),
 				t,
+				sineAmp: lerp(prev.sineAmp, cur.sineAmp, t),
+				sineFreq: lerp(prev.sineFreq, cur.sineFreq, t),
+				harmAmp: lerp(prev.harmAmp, cur.harmAmp, t),
+				harmFreq: lerp(prev.harmFreq, cur.harmFreq, t),
+				noise: lerp(prev.noise, cur.noise, t),
+				spikeChance: lerp(prev.spikeChance, cur.spikeChance, t),
+				spikeAmp: lerp(prev.spikeAmp, cur.spikeAmp, t),
+				envWobble: lerp(prev.envWobble, cur.envWobble, t),
+				score: lerp(prev.score, cur.score, t),
+				color1: blendColor(prev.color, cur.color, t),
+				color2: blendColor(prev.color, cur.color, t, true),
 			};
+		}
+
+		function hexToRgb(hex) {
+			const n = parseInt(hex.slice(1), 16);
+			return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+		}
+		function rgbStr(arr) {
+			return `rgb(${arr[0]|0},${arr[1]|0},${arr[2]|0})`;
+		}
+		function blendColor(a, b, t, lighten) {
+			const ca = hexToRgb(a);
+			const cb = hexToRgb(b);
+			const out = ca.map((v, i) => v + (cb[i] - v) * t);
+			if (lighten) {
+				return rgbStr(out.map((v) => v + (255 - v) * 0.25));
+			}
+			return rgbStr(out);
 		}
 
 		function generateSample() {
 			phase += 1;
-			const p = interpolated();
-			let y = CENTER_Y;
-			y += Math.sin(phase * p.sineFreq) * p.sineAmp;
-			y += Math.sin(phase * p.secondaryFreq + 1.7) * p.secondaryAmp;
-			y += (Math.random() - 0.5) * p.noiseAmp;
+			envPhase += 0.01;
+			const p = morphedParams();
+
+			// frequency wobble (rpm_instability): modulate sineFreq
+			let f = p.sineFreq;
+			if (p.envWobble > 0.01) {
+				f *= 1 + Math.sin(envPhase * 4) * 0.45 * p.envWobble;
+			}
+
+			let y = CENTER;
+			y += Math.sin(phase * f) * p.sineAmp;
+			y += Math.sin(phase * p.harmFreq + 1.7) * p.harmAmp;
+			y += (Math.random() - 0.5) * p.noise;
 			if (p.spikeAmp > 0.1 && Math.random() < p.spikeChance) {
 				y += (Math.random() < 0.5 ? -1 : 1) * p.spikeAmp * (0.6 + Math.random() * 0.6);
 			}
-			return Math.max(8, Math.min(152, y));
+
+			// voltage drop envelope: periodic amplitude collapse
+			if (cur.voltageDrop) {
+				const env = 0.5 + 0.5 * Math.sin(envPhase * 2.2);
+				y = CENTER + (y - CENTER) * (0.25 + 0.75 * env);
+			}
+
+			return Math.max(TOP_LIMIT, Math.min(BOT_LIMIT, y));
 		}
 
-		function pointsString() {
-			const stepX = W / (N - 1);
+		function buildPoints() {
+			const step = W / (N - 1);
 			let out = '';
 			for (let i = 0; i < N; i++) {
-				out += (i === 0 ? '' : ' ') + (i * stepX).toFixed(1) + ',' + samples[i].toFixed(1);
+				out += (i ? ' ' : '') + (i * step).toFixed(1) + ',' + samples[i].toFixed(1);
 			}
 			return out;
 		}
 
-		function applyVisuals(state, t) {
-			// Smoothly blend gradient stops too — but cheaper to just snap at midpoint
-			if (t >= 0.5 && monitor.dataset.tone !== state.id) {
-				monitor.dataset.tone = state.id;
+		function applyTone(state) {
+			if (appliedTone === state.id) return;
+			appliedTone = state.id;
 
-				els.lineStop1.setAttribute('stop-color', state.gradient[0]);
-				els.lineStop2.setAttribute('stop-color', state.gradient[1]);
-				els.fillStop.setAttribute('stop-color', state.fillColor);
+			// Trace gradient
+			els.stop1.setAttribute('stop-color', state.color);
+			els.stop2.setAttribute('stop-color', state.color);
+			els.edge.setAttribute('fill', state.color);
 
-				// Status pip
-				['bg-emerald-400', 'bg-amber-400', 'bg-red-400'].forEach((c) => {
-					els.statusDot.classList.remove(c);
-					els.statusPing.classList.remove(c);
-				});
-				state.dotClasses.forEach((c) => {
-					els.statusDot.classList.add(c);
-					els.statusPing.classList.add(c);
-				});
+			// Status pip
+			['bg-emerald-400', 'bg-amber-400', 'bg-red-400'].forEach((c) => {
+				els.statusDot.classList.remove(c);
+				els.statusPing.classList.remove(c);
+			});
+			els.statusDot.classList.add(state.dotClass);
+			els.statusPing.classList.add(state.dotClass);
 
-				// Edge dot
-				els.edge.setAttribute('fill', state.gradient[0]);
+			// Tone label
+			els.toneLabel.textContent = state.label;
+			['text-emerald-300', 'text-amber-300', 'text-red-300'].forEach((c) =>
+				els.toneLabel.classList.remove(c)
+			);
+			els.toneLabel.classList.add(state.toneClass);
 
-				// Tone label
-				els.toneLabel.textContent = state.toneLabel;
-				els.toneLabel.style.color = state.toneColor;
+			// Baseline label
+			els.baselineLabel.textContent = state.baseline;
 
-				// Baseline label
-				els.baselineLabel.textContent = state.baselineTxt;
-				els.baselineLabel.style.color = state.baselineColor;
+			// Score bar color
+			els.scoreBar.style.backgroundColor = state.color;
 
-				// Score bar gradient
-				els.scoreBar.style.background = state.barGradient;
+			// Alert icon color
+			['text-emerald-400', 'text-amber-400', 'text-red-400'].forEach((c) =>
+				els.alertIcon.classList.remove(c)
+			);
+			const iconColor =
+				state.tone === 'green'
+					? 'text-emerald-400'
+					: state.tone === 'amber'
+						? 'text-amber-400'
+						: 'text-red-400';
+			els.alertIcon.classList.add(iconColor);
+			els.alertText.innerHTML = state.alert;
 
-				// Asset border
-				['border-white/5', 'border-[#fbbf24]/30', 'border-[#ef4444]/40'].forEach((c) =>
-					els.asset.classList.remove(c)
-				);
-				els.asset.classList.add(state.assetBorder);
-
-				// Alert
-				['text-[#34d399]', 'text-[#fbbf24]', 'text-[#f87171]'].forEach((c) =>
-					els.alertIcon.classList.remove(c)
-				);
-				els.alertIcon.classList.add(state.alertIconColor);
-				els.alertText.innerHTML = state.alertText;
-
-				// Stats
-				els.rms.textContent = state.rms;
-				els.peak.textContent = state.peak;
-				els.temp.textContent = state.temp;
-				els.power.textContent = state.power;
-				els.inference.textContent = state.inference;
-			}
+			// Numeric stats
+			els.rms.textContent = state.rms;
+			els.peak.textContent = state.peak;
+			els.temp.textContent = state.temp;
+			els.rpm.textContent = state.rpm;
+			els.power.textContent = state.power;
+			els.inference.textContent = state.inference;
 		}
 
-		function tickFrame() {
-			samples.shift();
-			samples.push(generateSample());
-			els.trace.setAttribute('points', pointsString());
+		function frame(now) {
+			if (lastSample === 0) lastSample = now;
+			while (now - lastSample >= SAMPLE_INTERVAL) {
+				samples.shift();
+				samples.push(generateSample());
+				lastSample += SAMPLE_INTERVAL;
+			}
+			els.trace.setAttribute('points', buildPoints());
 
-			const p = interpolated();
+			const p = morphedParams();
 			els.scoreBar.style.width = (p.score * 100).toFixed(1) + '%';
 			els.scoreNum.textContent = p.score.toFixed(2);
 
-			applyVisuals(targetState, p.t);
+			// Snap tone visuals at the midpoint of the transition
+			if (p.t >= 0.5) applyTone(cur);
 
-			const now = performance.now();
-			if (p.t >= 1 && now - lastStateSwitch > targetState.dwellMs) {
-				goToNext();
+			// Advance state machine
+			if (p.t >= 1 && now - stateStart >= DWELL) {
+				stateIdx = (stateIdx + 1) % states.length;
+				prev = cur;
+				cur = states[stateIdx];
+				transitionStart = now;
+				stateStart = now;
 			}
+
+			rafId = requestAnimationFrame(frame);
 		}
 
-		function goToState(newIdx) {
-			stateIdx = newIdx;
-			currentState = targetState; // snapshot current visual params
-			targetState = states[stateIdx];
-			transitionStart = performance.now();
-			lastStateSwitch = transitionStart;
-		}
-
-		function goToNext() {
-			goToState((stateIdx + 1) % states.length);
-		}
-
-		// User-triggered fault demo (jumps to next fault)
-		els.trigger.addEventListener('click', () => {
-			// Pick a non-healthy state
-			let nextIdx = (stateIdx + 1) % states.length;
-			if (states[nextIdx].id === 'healthy') nextIdx = (nextIdx + 1) % states.length;
-			goToState(nextIdx);
-		});
-
-		// Respect reduced motion
-		const reduce =
-			window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		if (reduce) {
-			// Render once and stop
-			for (let i = 0; i < 60; i++) tickFrame();
-			return;
-		}
-
-		// Only animate when visible (saves CPU off-screen)
-		let running = false;
-		let intervalId = null;
+		let lastSample = 0;
+		let rafId = null;
 		function start() {
-			if (running) return;
-			running = true;
-			lastStateSwitch = performance.now();
-			intervalId = setInterval(tickFrame, 42); // ~24 fps
+			if (rafId !== null) return;
+			lastSample = 0;
+			stateStart = performance.now();
+			transitionStart = performance.now();
+			rafId = requestAnimationFrame(frame);
 		}
 		function stop() {
-			running = false;
-			if (intervalId) clearInterval(intervalId);
-			intervalId = null;
+			if (rafId !== null) cancelAnimationFrame(rafId);
+			rafId = null;
+		}
+
+		// Respect reduced motion
+		if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			for (let i = 0; i < 80; i++) {
+				samples.shift();
+				samples.push(generateSample());
+			}
+			els.trace.setAttribute('points', buildPoints());
+			applyTone(cur);
+			return;
 		}
 
 		if ('IntersectionObserver' in window) {
 			const io = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((e) => (e.isIntersecting ? start() : stop()));
-				},
+				(entries) => entries.forEach((e) => (e.isIntersecting ? start() : stop())),
 				{ threshold: 0.05 }
 			);
 			io.observe(monitor);

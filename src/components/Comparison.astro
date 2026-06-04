@@ -1,114 +1,59 @@
 ---
 const rows = [
-	{
-		name: 'Augury',
-		market: 'Enterprise',
-		entry: '$1M+',
-		deploy: 'Managed service',
-		note: 'Fortune 500 only',
-		highlight: false,
-	},
-	{
-		name: 'Tractian',
-		market: 'Enterprise',
-		entry: '$200K+',
-		deploy: 'Managed service',
-		note: 'Moving down-market',
-		highlight: false,
-	},
-	{
-		name: 'Petasense',
-		market: 'SMB',
-		entry: 'Moderate',
-		deploy: 'Managed',
-		note: 'Under-resourced',
-		highlight: false,
-	},
-	{
-		name: 'Senseye',
-		market: 'Enterprise',
-		entry: 'High',
-		deploy: 'Managed',
-		note: 'Acquired by Siemens',
-		highlight: false,
-	},
-	{
-		name: 'KCF / SmartDiagnostics',
-		market: 'Mid-market',
-		entry: 'Medium',
-		deploy: 'Consulting model',
-		note: 'Service-led, not productized',
-		highlight: false,
-	},
-	{
-		name: 'MidMon',
-		market: 'Mid-market',
-		entry: '< $10K / line',
-		deploy: 'Self-install',
-		note: 'FPGA edge-AI · RaaS',
-		highlight: true,
-	},
+	{ name: 'Augury', market: 'Enterprise', entry: '$1M+', deploy: 'Managed service', note: 'Fortune 500 only', highlight: false },
+	{ name: 'Tractian', market: 'Enterprise', entry: '$200K+', deploy: 'Managed service', note: 'Moving down-market', highlight: false },
+	{ name: 'Petasense', market: 'SMB', entry: 'Moderate', deploy: 'Managed', note: 'Under-resourced', highlight: false },
+	{ name: 'Senseye', market: 'Enterprise', entry: 'High', deploy: 'Managed', note: 'Acquired by Siemens', highlight: false },
+	{ name: 'KCF / SmartDiagnostics', market: 'Mid-market', entry: 'Medium', deploy: 'Consulting model', note: 'Service-led, not productized', highlight: false },
+	{ name: 'MidMon', market: 'Mid-market', entry: '< $10K / line', deploy: 'Self-install', note: 'Edge AI, RaaS', highlight: true },
 ];
 ---
 
-<section id="comparison" class="relative py-28 md:py-36">
+<section id="comparison" class="relative py-24 md:py-32">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
-				<span class="section-eyebrow">Market position</span>
+				<span class="section-eyebrow">Where we sit</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-				The market is split in two. <span class="text-gradient-accent">We sit in the gap.</span>
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+				The market is split in two. <span class="text-accent">We sit in the gap.</span>
 			</h2>
 			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
 				Enterprise platforms are optimized for $500K+ deals. SMB tools are under-resourced. Nobody
-				has productized AI-native predictive maintenance for the segment in between.
+				has productized edge AI for the segment in between.
 			</p>
 		</div>
 
-		<div data-reveal class="mt-14">
+		<div data-reveal class="mt-12">
 			<div class="card overflow-hidden p-0">
-				<span class="glow-ring"></span>
-				<!-- Table head -->
 				<div class="hidden border-b border-white/10 bg-white/[0.02] px-6 py-4 text-[10px] font-medium tracking-widest text-[var(--color-text-dim)] uppercase md:grid md:grid-cols-[1.6fr_1fr_1.1fr_1.2fr_1.4fr]">
 					<div>Platform</div>
 					<div>Target market</div>
 					<div>Entry cost</div>
 					<div>Deployment</div>
-					<div>Key signal</div>
+					<div>Notable</div>
 				</div>
 
-				<!-- Rows -->
 				<div class="divide-y divide-white/5">
 					{
 						rows.map((row) => (
-							<div
-								class={`grid grid-cols-2 items-center gap-y-2 px-6 py-5 md:grid-cols-[1.6fr_1fr_1.1fr_1.2fr_1.4fr] ${row.highlight ? 'bg-[#2dd4bf]/[0.05]' : ''}`}
-							>
+							<div class={`grid grid-cols-2 items-center gap-y-2 px-6 py-5 md:grid-cols-[1.6fr_1fr_1.1fr_1.2fr_1.4fr] ${row.highlight ? 'bg-[#2dd4bf]/[0.05]' : ''}`}>
 								<div class="col-span-2 flex items-center gap-2 md:col-span-1">
 									<span class={row.highlight ? 'font-semibold text-white' : 'text-white/90'}>
 										{row.name}
 									</span>
 									{row.highlight && (
-										<span class="inline-flex rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/10 px-2 py-0.5 text-[10px] font-medium tracking-widest text-[#2dd4bf] uppercase">
+										<span class="inline-flex rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/10 px-2 py-0.5 text-[10px] font-medium tracking-widest text-[#5eead4] uppercase">
 											us
 										</span>
 									)}
 								</div>
-								<div class="text-xs text-[var(--color-text-muted)] md:text-sm">
-									<span class="md:hidden text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase mr-2">Market:</span>
-									{row.market}
-								</div>
-								<div class={`font-mono text-xs md:text-sm ${row.highlight ? 'text-[#2dd4bf]' : 'text-[var(--color-text-muted)]'}`}>
-									<span class="md:hidden text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase mr-2 font-sans">Entry:</span>
+								<div class="text-xs text-[var(--color-text-muted)] md:text-sm">{row.market}</div>
+								<div class={`font-mono text-xs md:text-sm ${row.highlight ? 'text-[#5eead4]' : 'text-[var(--color-text-muted)]'}`}>
 									{row.entry}
 								</div>
-								<div class="text-xs text-[var(--color-text-muted)] md:text-sm">
-									<span class="md:hidden text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase mr-2">Deploy:</span>
-									{row.deploy}
-								</div>
+								<div class="text-xs text-[var(--color-text-muted)] md:text-sm">{row.deploy}</div>
 								<div class={`text-xs md:text-sm ${row.highlight ? 'text-white' : 'text-[var(--color-text-muted)]'}`}>
-									<span class="md:hidden text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase mr-2">Signal:</span>
 									{row.note}
 								</div>
 							</div>
@@ -118,7 +63,8 @@ const rows = [
 			</div>
 
 			<p data-reveal data-reveal-delay="1" class="mt-6 text-center text-xs text-[var(--color-text-dim)]">
-				Augury raised $75M in Feb 2025 at a $1B+ valuation. Tractian closed a $120M Series C in Dec 2024. The category is funded. The mid-market is open.
+				Augury raised $75M in Feb 2025 at a $1B+ valuation. Tractian closed a $120M Series C in
+				Dec 2024. The category is funded. The mid-market is open.
 			</p>
 		</div>
 	</div>

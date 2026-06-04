@@ -4,46 +4,36 @@ import { CONTACT_EMAIL } from '../consts';
 const audiences = [
 	{
 		label: 'Plant manager',
-		body: 'Curious if a pilot makes sense for your line? 15 minutes — we\u2019ll walk through the install and economics.',
+		body: 'Curious if a pilot fits your line? 15 minutes, we walk through install and economics.',
 	},
 	{
 		label: 'Investor',
-		body: 'We\u2019re mapping the lead and partner co-invest pool for our seed. Happy to share the data room.',
+		body: 'We\u2019re mapping the lead and co-invest pool for our seed. Happy to share the data room.',
 	},
 	{
 		label: 'Engineer',
-		body: 'We\u2019re hiring (and offering paid internships) across FPGA, embedded, ML, and systems.',
+		body: 'We\u2019re hiring across FPGA, embedded, ML, and systems. Paid internships included.',
 	},
 ];
 ---
 
-<section id="contact" class="relative py-28 md:py-36">
+<section id="contact" class="relative py-24 md:py-32">
 	<div class="container-x">
 		<div class="card relative overflow-hidden p-8 md:p-14">
-			<span class="glow-ring"></span>
-
-			<!-- Background flair -->
-			<div class="pointer-events-none absolute inset-0 -z-10">
-				<div class="absolute -right-32 -top-32 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.18),transparent_60%)] blur-3xl"></div>
-				<div class="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle_at_center,rgba(96,165,250,0.14),transparent_60%)] blur-3xl"></div>
-				<div class="absolute inset-0 bg-grid opacity-30"></div>
-			</div>
-
 			<div class="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr]">
 				<div>
 					<div data-reveal>
 						<span class="section-eyebrow">Get in touch</span>
 					</div>
-					<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-						Talk to the <span class="text-gradient-accent">team</span>.
+					<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+						Talk to the <span class="text-accent">team</span>.
 					</h2>
 					<p data-reveal data-reveal-delay="2" class="mt-5 max-w-xl text-[var(--color-text-muted)] md:text-lg">
-						Everything goes straight to our founder Soma &mdash; no SDR layer, no
-						middle-of-the-funnel automation. Expect a reply inside one business day.
+						Everything goes to Soma. No SDRs. Reply within one business day.
 					</p>
 
 					<div data-reveal data-reveal-delay="3" class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-						<a href={`mailto:${CONTACT_EMAIL}?subject=MidMon%20%E2%80%94%20intro`} class="btn btn-primary">
+						<a href={`mailto:${CONTACT_EMAIL}?subject=MidMon%20intro`} class="btn btn-primary">
 							Email {CONTACT_EMAIL}
 							<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
 								<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -58,7 +48,7 @@ const audiences = [
 					</div>
 
 					<p data-reveal data-reveal-delay="4" class="mt-6 text-xs text-[var(--color-text-dim)]">
-						Concordia University &middot; Gina Cody School of Engineering &middot; Montréal, QC
+						Concordia University . Gina Cody School of Engineering . Montréal, QC
 					</p>
 				</div>
 
@@ -68,7 +58,7 @@ const audiences = [
 							<div class="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-[#2dd4bf]/30 hover:bg-[#2dd4bf]/[0.04]">
 								<div class="flex items-center gap-2">
 									<span class="inline-flex h-2 w-2 rounded-full bg-[#2dd4bf]" />
-									<div class="text-xs font-medium tracking-widest text-[var(--color-accent)] uppercase">
+									<div class="text-xs font-medium tracking-widest text-[#5eead4] uppercase">
 										{a.label}
 									</div>
 								</div>

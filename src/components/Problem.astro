@@ -2,46 +2,43 @@
 const stats = [
 	{
 		value: '$1.4T',
-		caption: 'lost globally every year to unplanned equipment downtime — roughly 11% of revenue for the world\u2019s 500 largest manufacturers.',
+		caption: 'lost every year to unplanned equipment downtime. About 11% of revenue for the world\u2019s 500 largest manufacturers.',
 		source: 'Siemens, True Cost of Downtime 2024',
 		color: 'text-[#f59e0b]',
 	},
 	{
 		value: '14%',
-		caption: 'of manufacturers have any prescriptive maintenance system in place. The other 86% are running blind.',
+		caption: 'of manufacturers run any prescriptive maintenance. The other 86% wait for things to break.',
 		source: 'Plant Services / Augury, 2024',
 		color: 'text-[#60a5fa]',
 	},
 	{
 		value: '30,000+',
-		caption: 'mid-market plants in Canada and the US Northeast operate without a viable predictive-maintenance option.',
+		caption: 'mid-market plants in Canada and the US Northeast have no affordable predictive option.',
 		source: 'MidMon market analysis, 2025',
-		color: 'text-[#2dd4bf]',
+		color: 'text-[#5eead4]',
 	},
 ];
 ---
 
-<section id="problem" class="relative py-28 md:py-36">
+<section id="problem" class="relative py-24 md:py-32">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal class="flex justify-center">
-				<span class="section-eyebrow">The Problem</span>
+				<span class="section-eyebrow">The problem</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-				The cost of doing <span class="text-gradient-warm">nothing</span>.
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+				The cost of doing <span class="text-accent">nothing</span>.
 			</h2>
-			<p data-reveal data-reveal-delay="2" class="mx-auto mt-6 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-				Reactive maintenance is the default for most of the manufacturing world &mdash; not
-				because nobody has solved it, but because every solution that exists is built for the
-				Fortune 500.
+			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
+				Predictive maintenance exists. It just isn\u2019t built for most of the manufacturing world.
 			</p>
 		</div>
 
-		<div class="mt-16 grid gap-6 md:grid-cols-3">
+		<div class="mt-14 grid gap-6 md:grid-cols-3">
 			{
 				stats.map((stat, i) => (
 					<article data-reveal data-reveal-delay={String(i + 1)} class="card p-7">
-						<span class="glow-ring" />
 						<div class={`font-mono text-5xl font-semibold tracking-tight md:text-6xl ${stat.color}`}>
 							{stat.value}
 						</div>
@@ -54,69 +51,38 @@ const stats = [
 			}
 		</div>
 
-		<!-- The Gap visualization -->
-		<div data-reveal class="mt-16">
+		<!-- The gap -->
+		<div data-reveal class="mt-14">
 			<div class="card relative overflow-hidden p-8 md:p-10">
-				<span class="glow-ring"></span>
 				<div class="grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
-					<!-- Enterprise -->
 					<div class="rounded-2xl border border-white/5 bg-white/[0.02] p-6">
 						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Enterprise</div>
 						<div class="mt-1 text-2xl font-semibold text-white">$1M+ per deployment</div>
 						<ul class="mt-4 space-y-2 text-sm text-[var(--color-text-muted)]">
-							<li class="flex items-start gap-2">
-								<span class="mt-1 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-white/30"></span>
-								Augury, Tractian — Fortune 500 only
-							</li>
-							<li class="flex items-start gap-2">
-								<span class="mt-1 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-white/30"></span>
-								Managed onboarding, months of integration
-							</li>
-							<li class="flex items-start gap-2">
-								<span class="mt-1 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-white/30"></span>
-								Cloud-dependent, requires data scientists on staff
-							</li>
+							<li>Augury, Tractian. Fortune 500 only.</li>
+							<li>Months of managed onboarding.</li>
+							<li>Cloud-dependent, needs data scientists on staff.</li>
 						</ul>
 					</div>
 
-					<!-- The Gap -->
 					<div class="flex flex-col items-center justify-center text-center md:px-2">
-						<div class="text-[10px] tracking-[0.3em] text-[var(--color-text-dim)] uppercase">The Gap</div>
+						<div class="text-[10px] tracking-[0.3em] text-[var(--color-text-dim)] uppercase">The gap</div>
 						<div class="mt-2 font-mono text-4xl font-semibold text-white md:text-5xl">30K+</div>
 						<div class="mt-1 max-w-[14rem] text-xs text-[var(--color-text-muted)]">
-							mid-market plants in CA &amp; US Northeast with no affordable option
+							mid-market plants with no affordable option
 						</div>
-						<svg class="mt-4 h-10 w-full max-w-[12rem] text-[var(--color-text-dim)] md:hidden" viewBox="0 0 200 40" fill="none">
-							<path d="M10 20 L190 20" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
-						</svg>
 					</div>
 
-					<!-- MidMon -->
-					<div class="relative rounded-2xl border border-[#2dd4bf]/30 bg-gradient-to-br from-[#2dd4bf]/10 to-[#60a5fa]/5 p-6">
-						<div class="absolute -top-2 left-6 inline-flex items-center gap-1.5 rounded-full border border-[#2dd4bf]/40 bg-[#04080f] px-2 py-0.5 text-[10px] font-semibold tracking-widest text-[#2dd4bf] uppercase">
+					<div class="relative rounded-2xl border border-[#2dd4bf]/30 bg-[#2dd4bf]/[0.05] p-6">
+						<div class="absolute -top-2 left-6 inline-flex items-center gap-1.5 rounded-full border border-[#2dd4bf]/40 bg-[#04080f] px-2 py-0.5 text-[10px] font-semibold tracking-widest text-[#5eead4] uppercase">
 							MidMon
 						</div>
 						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Mid-market</div>
 						<div class="mt-1 text-2xl font-semibold text-white">&lt; $10K per line</div>
 						<ul class="mt-4 space-y-2 text-sm text-[var(--color-text-muted)]">
-							<li class="flex items-start gap-2">
-								<svg class="mt-0.5 h-4 w-4 shrink-0 text-[#2dd4bf]" viewBox="0 0 16 16" fill="none">
-									<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-								Self-installing, no specialist required
-							</li>
-							<li class="flex items-start gap-2">
-								<svg class="mt-0.5 h-4 w-4 shrink-0 text-[#2dd4bf]" viewBox="0 0 16 16" fill="none">
-									<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-								On-device AI &mdash; no cloud dependency
-							</li>
-							<li class="flex items-start gap-2">
-								<svg class="mt-0.5 h-4 w-4 shrink-0 text-[#2dd4bf]" viewBox="0 0 16 16" fill="none">
-									<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-								Sub-PO threshold: a plant manager can approve it alone
-							</li>
+							<li>Self-installing. No specialist needed.</li>
+							<li>On-device AI. No cloud dependency.</li>
+							<li>A plant manager can approve it alone.</li>
 						</ul>
 					</div>
 				</div>

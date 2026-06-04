@@ -5,13 +5,13 @@ const tiers = [
 		assets: '5–10 assets',
 		audience: 'Single critical line, one site',
 		hardware: '$300–500',
-		hardwareLabel: 'per sensor node, one-time',
+		hardwareLabel: 'per sensor, one-time',
 		recurring: '$50–80',
 		recurringLabel: 'per asset, per month',
 		bullets: [
-			'Sensor nodes for vibration + current + acoustic',
+			'Sensor coverage for vibration, current, acoustic',
 			'Self-installing gateway',
-			'Cloud dashboard + email alerts',
+			'Dashboard and email alerts',
 			'Direct support from the founding team',
 		],
 		highlight: false,
@@ -22,14 +22,14 @@ const tiers = [
 		assets: '30–50 assets',
 		audience: 'Full production line or facility',
 		hardware: '$300–500',
-		hardwareLabel: 'per sensor node, one-time',
+		hardwareLabel: 'per sensor, one-time',
 		recurring: '$1.5K–2.4K',
 		recurringLabel: 'per plant, per month',
 		bullets: [
 			'Everything in Pilot, plant-wide',
 			'CMMS integration (SAP PM and others)',
 			'Quarterly model retraining',
-			'~$18–29K ARR per plant',
+			'Around $18–29K ARR per plant',
 		],
 		highlight: true,
 		cta: 'Talk to the team',
@@ -44,9 +44,9 @@ const tiers = [
 		recurringLabel: 'tier on subscription',
 		bullets: [
 			'Cross-plant reliability dashboard',
-			'Procurement & rollout support',
+			'Procurement and rollout support',
 			'Dedicated success engineer',
-			'Path to private-cloud / on-prem deployment',
+			'Optional private-cloud or on-prem',
 		],
 		highlight: false,
 		cta: 'Book a strategy call',
@@ -54,22 +54,22 @@ const tiers = [
 ];
 ---
 
-<section id="pricing" class="relative py-28 md:py-36">
+<section id="pricing" class="relative py-24 md:py-32">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
 				<span class="section-eyebrow">Sensor-as-a-Service</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-				A line item, not a <span class="text-gradient-warm">seven-figure project</span>.
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+				A <span class="text-accent">line item</span>, not a seven-figure project.
 			</h2>
 			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-				Hardware at cost. Software as a subscription. Below the unilateral approval threshold of a
-				plant manager &mdash; deliberately.
+				Hardware at cost. Software as a subscription. Below the threshold a plant manager can
+				sign off alone.
 			</p>
 		</div>
 
-		<div class="mt-14 grid gap-6 lg:grid-cols-3">
+		<div class="mt-12 grid gap-6 lg:grid-cols-3">
 			{
 				tiers.map((tier, i) => (
 					<article
@@ -77,9 +77,8 @@ const tiers = [
 						data-reveal-delay={String(i + 1)}
 						class={`card relative p-7 ${tier.highlight ? 'border-[#2dd4bf]/40 bg-gradient-to-b from-[#2dd4bf]/[0.06] to-transparent' : ''}`}
 					>
-						<span class="glow-ring" />
 						{tier.highlight && (
-							<span class="absolute -top-3 left-7 inline-flex rounded-full border border-[#2dd4bf]/40 bg-[#04080f] px-2.5 py-0.5 text-[10px] font-semibold tracking-widest text-[#2dd4bf] uppercase">
+							<span class="absolute -top-3 left-7 inline-flex rounded-full border border-[#2dd4bf]/40 bg-[#04080f] px-2.5 py-0.5 text-[10px] font-semibold tracking-widest text-[#5eead4] uppercase">
 								most common
 							</span>
 						)}
@@ -99,7 +98,7 @@ const tiers = [
 							</div>
 							<div class="divider-soft" />
 							<div>
-								<div class={`font-mono text-2xl font-semibold ${tier.highlight ? 'text-[#2dd4bf]' : 'text-white'}`}>
+								<div class={`font-mono text-2xl font-semibold ${tier.highlight ? 'text-[#5eead4]' : 'text-white'}`}>
 									{tier.recurring}
 								</div>
 								<div class="text-[11px] tracking-wide text-[var(--color-text-dim)]">
@@ -111,7 +110,7 @@ const tiers = [
 						<ul class="mt-6 space-y-2.5 text-sm">
 							{tier.bullets.map((b) => (
 								<li class="flex items-start gap-2 text-[var(--color-text-muted)]">
-									<svg class="mt-0.5 h-4 w-4 shrink-0 text-[#2dd4bf]" viewBox="0 0 16 16" fill="none">
+									<svg class="mt-0.5 h-4 w-4 shrink-0 text-[#5eead4]" viewBox="0 0 16 16" fill="none">
 										<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
 									</svg>
 									{b}
@@ -119,14 +118,8 @@ const tiers = [
 							))}
 						</ul>
 
-						<a
-							href="#contact"
-							class={`btn mt-7 w-full ${tier.highlight ? 'btn-primary' : 'btn-ghost'}`}
-						>
+						<a href="#contact" class={`btn mt-7 w-full ${tier.highlight ? 'btn-primary' : 'btn-ghost'}`}>
 							{tier.cta}
-							<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-								<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
 						</a>
 					</article>
 				))
@@ -134,33 +127,30 @@ const tiers = [
 		</div>
 
 		<!-- ARR roadmap -->
-		<div data-reveal class="mt-16">
+		<div data-reveal class="mt-14">
 			<div class="card overflow-hidden p-7 md:p-10">
-				<span class="glow-ring"></span>
 				<div class="grid items-center gap-8 md:grid-cols-[1.2fr_2fr]">
 					<div>
 						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Path to scale</div>
 						<h3 class="mt-2 text-2xl font-semibold text-white">Unit economics that compound</h3>
 						<p class="mt-3 text-sm text-[var(--color-text-muted)]">
-							A clean line from first pilot to Series A &mdash; every step independently underwritable.
+							A clean line from first pilot to Series A. Every step underwritable on its own.
 						</p>
 					</div>
 
-					<div class="relative">
-						<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-							{[
-								{ when: 'Pilot', val: '$25–50K', label: 'first paid pilot' },
-								{ when: '50 plants', val: '~$1M', label: 'recurring ARR' },
-								{ when: '200 plants', val: '~$5M', label: 'Series A ready' },
-								{ when: 'TAM', val: '$4–6B', label: 'NA mid-market by 2030' },
-							].map((s, i) => (
-								<div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
-									<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">{s.when}</div>
-									<div class="mt-1 font-mono text-lg font-semibold text-white">{s.val}</div>
-									<div class="text-[11px] text-[var(--color-text-muted)]">{s.label}</div>
-								</div>
-							))}
-						</div>
+					<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+						{[
+							{ when: 'Pilot', val: '$25–50K', label: 'first paid pilot' },
+							{ when: '50 plants', val: '~$1M', label: 'recurring ARR' },
+							{ when: '200 plants', val: '~$5M', label: 'Series A ready' },
+							{ when: 'TAM', val: '$4–6B', label: 'NA mid-market by 2030' },
+						].map((s) => (
+							<div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+								<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">{s.when}</div>
+								<div class="mt-1 font-mono text-lg font-semibold text-white">{s.val}</div>
+								<div class="text-[11px] text-[var(--color-text-muted)]">{s.label}</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

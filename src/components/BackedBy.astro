@@ -1,80 +1,67 @@
 ---
 const partners = [
-	{ name: 'Concordia University', sub: 'Gina Cody School of Engineering' },
-	{ name: 'Gina Cody Innovation Fund', sub: 'Phase 1 seed program' },
-	{ name: 'IEEE Concordia', sub: 'Project leadership pipeline' },
-	{ name: 'CSME Concordia', sub: 'Mechanical engineering chapter' },
-	{ name: 'Centech', sub: 'Industrial network access' },
-	{ name: 'AQFP', sub: 'Quebec Food Processing' },
+	{ name: 'Concordia · Gina Cody Innovation Fund', tag: 'Phase 1 award', context: 'Lab space and a path to Phase 2 commercialization funding.' },
+	{ name: 'IEEE Concordia', tag: 'Talent pipeline', context: 'Where four of our six founders have held leadership roles.' },
+	{ name: 'CSME Concordia', tag: 'Mechanical depth', context: 'Founder Soma served as VP IT.' },
+	{ name: 'Centech', tag: 'Acceleration target', context: 'Top-3 tech accelerator in Canada, MTL.' },
+	{ name: 'District 3', tag: 'Acceleration target', context: 'Concordia-based deep-tech incubator.' },
+	{ name: 'CRIC', tag: 'Industrial network', context: 'Centre de Recherche Industrielle du Canada.' },
 ];
 
-const pipeline = [
-	{ name: 'NRC IRAP', detail: '$75–200K first-time award (filed)' },
-	{ name: 'SR&ED federal credit', detail: '35% refundable on R&D' },
-	{ name: 'Quebec CRIC', detail: '30–50% refundable (2025)' },
-	{ name: 'Mitacs Accelerate', detail: '$15K / 4-month intern' },
-	{ name: 'Prompt Innovation AI', detail: 'Up to $1.5M @ 50% match' },
+const funding = [
+	{ label: 'IRAP', detail: 'NRC Industrial Research Assistance Program. Up to $50K for early commercialization.' },
+	{ label: 'SR&ED', detail: 'Federal R&D tax credit. Refunds eligible engineering costs from day one.' },
+	{ label: 'CRIC + Mitacs', detail: 'Industrial collaboration grants that pair us with established partners.' },
+	{ label: 'Prompt', detail: 'Quebec ICT R&D fund covering up to 80% of collaborative project costs.' },
 ];
 ---
 
-<section id="backed" class="relative py-24 md:py-28">
+<section id="backed" class="relative py-24 md:py-32">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
-				<span class="section-eyebrow">Backed by &amp; built with</span>
+				<span class="section-eyebrow">Backed by</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-2xl font-semibold tracking-tight md:text-4xl">
-				A foundation that <span class="text-gradient-accent">de-risks every dollar after the first</span>.
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+				A non-dilutive runway by <span class="text-accent">design</span>.
 			</h2>
+			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
+				Quebec\u2019s deep-tech funding stack is one of the most founder-friendly in North America. We
+				use it.
+			</p>
 		</div>
 
-		<!-- Partner / affiliation strip -->
-		<div data-reveal class="mt-12">
-			<div class="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
-				{
-					partners.map((p) => (
-						<div class="group flex items-center gap-4 bg-[var(--color-bg)] p-5 transition-colors hover:bg-[var(--color-surface)]">
-							<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.02]">
-								<svg class="h-5 w-5 text-[var(--color-text-muted)] transition-colors group-hover:text-[#2dd4bf]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-									<path d="M12 2 2 7l10 5 10-5-10-5Z" />
-									<path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-								</svg>
-							</div>
-							<div class="min-w-0">
-								<div class="truncate text-sm font-semibold text-white">{p.name}</div>
-								<div class="truncate text-[11px] text-[var(--color-text-muted)]">{p.sub}</div>
-							</div>
+		<div class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-3">
+			{
+				partners.map((p, i) => (
+					<article data-reveal data-reveal-delay={String((i % 3) + 1)} class="bg-[var(--color-bg)] p-6">
+						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
+							{p.tag}
 						</div>
-					))
-				}
-			</div>
+						<div class="mt-2 text-base font-semibold text-white">{p.name}</div>
+						<p class="mt-2 text-xs text-[var(--color-text-muted)]">{p.context}</p>
+					</article>
+				))
+			}
 		</div>
 
-		<!-- Non-dilutive pipeline -->
-		<div data-reveal class="mt-10">
-			<div class="card overflow-hidden p-7 md:p-8">
-				<span class="glow-ring"></span>
-				<div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-					<div class="max-w-md">
-						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Non-dilutive funding pipeline</div>
-						<h3 class="mt-2 text-xl font-semibold text-white">
-							Federal &amp; provincial credits stack on top of Phase 1.
-						</h3>
-						<p class="mt-2 text-sm text-[var(--color-text-muted)]">
-							A small Innovation Fund seed unlocks a much larger stack of non-dilutive capital
-							designed specifically for Canadian hardware startups.
-						</p>
-					</div>
-					<div class="flex flex-wrap gap-2">
-						{
-							pipeline.map((p) => (
-								<div class="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5">
-									<span class="text-xs font-medium text-white">{p.name}</span>
-									<span class="ml-2 text-[11px] text-[var(--color-text-muted)]">{p.detail}</span>
-								</div>
-							))
-						}
-					</div>
+		<div data-reveal class="mt-12">
+			<div class="card overflow-hidden p-7 md:p-9">
+				<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
+					Non-dilutive funding pipeline
+				</div>
+				<h3 class="mt-2 text-xl font-semibold text-white">
+					Up to $250K secured before any equity round
+				</h3>
+				<div class="mt-6 grid gap-4 md:grid-cols-2">
+					{
+						funding.map((f) => (
+							<div class="rounded-xl border border-white/5 bg-white/[0.02] p-5">
+								<div class="text-sm font-semibold text-white">{f.label}</div>
+								<p class="mt-1.5 text-xs text-[var(--color-text-muted)]">{f.detail}</p>
+							</div>
+						))
+					}
 				</div>
 			</div>
 		</div>

@@ -3,8 +3,8 @@
 
 export const SITE_TITLE = 'MidMon';
 export const SITE_DESCRIPTION =
-	'MidMon is the first AI-native predictive maintenance platform built for the mid-market — on-device FPGA inference, self-installing sensors, under $10K per production line.';
-export const SITE_TAGLINE = 'Edge-AI condition monitoring for mid-market manufacturers.';
+	'Predictive maintenance for mid-market manufacturers. Self-installing sensors, on-device AI, under $10K per production line.';
+export const SITE_TAGLINE = 'Predictive maintenance built for the mid-market.';
 
 export const CONTACT_EMAIL = 'so_chena@live.concordia.ca';
 export const CONTACT_LABEL = 'Talk to the team';

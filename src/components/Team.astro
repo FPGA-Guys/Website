@@ -1,117 +1,96 @@
 ---
-import { Image } from 'astro:assets';
-import somaPhoto from '../assets/team/soma.png';
-import anabellaPhoto from '../assets/team/anabella.jpeg';
-import nirmalPhoto from '../assets/team/nirmal.jpeg';
-import eithanPhoto from '../assets/team/eithan.jpeg';
-import danielPhoto from '../assets/team/daniel.jpeg';
-import sepehrPhoto from '../assets/team/sepehr.jpeg';
-
 const team = [
 	{
 		name: 'Soma Chénard-Koné',
 		role: 'CEO',
-		focus: 'Strategy, direction & coordination',
-		bio: 'Founder. Director of Projects at IEEE Concordia and former VP IT at the CSME Concordia chapter. Originated MidMon and assembled the team, recruiting each member for a distinct technical discipline.',
-		hue: '#2dd4bf',
-		photo: somaPhoto,
+		focus: 'Strategy and coordination',
+		bio: 'Founder. Director of Projects at IEEE Concordia. Originated MidMon and assembled the team.',
+		photo: '/team/soma.png',
 		linkedin: 'https://www.linkedin.com/in/soma-chenardkone/',
 		email: 'so_chena@live.concordia.ca',
 	},
 	{
 		name: 'Anabella Kowalski',
 		role: 'CTO',
-		focus: 'FPGA architecture · technical lead',
-		bio: 'VP Marketing at IEEE Concordia. Past role at Natural Resources Canada gave her direct exposure to how government and industrial buyers evaluate new hardware. Leads the architecture of the FPGA-NPU codesign that constitutes the platform\u2019s moat.',
-		hue: '#60a5fa',
-		photo: anabellaPhoto,
+		focus: 'Hardware architecture lead',
+		bio: 'VP Marketing at IEEE Concordia. Past Natural Resources Canada role. Leads the edge AI hardware design.',
+		photo: '/team/anabella.jpeg',
 		linkedin: 'https://www.linkedin.com/in/anabella-kowalski-3552k',
 		email: 'an_kowal@live.concordia.ca',
 	},
 	{
 		name: 'Nirmal Patel',
 		role: 'CPO',
-		focus: 'Product · edge ML model lead',
-		bio: 'VP of Projects at IEEE Concordia — the senior project leadership role in the club. Leads edge ML: training, quantizing, and deploying transformer-class anomaly detection models onto the inference target.',
-		hue: '#34d399',
-		photo: nirmalPhoto,
+		focus: 'Product and edge ML',
+		bio: 'VP of Projects at IEEE Concordia. Owns the anomaly detection models and their deployment to the inference target.',
+		photo: '/team/nirmal.jpeg',
 		linkedin: 'https://www.linkedin.com/in/nirmalpatelxyz/',
 		email: 'pa_nirm@live.concordia.ca',
 	},
 	{
 		name: 'Eithan Kuri Valdovinos',
 		role: 'CFO',
-		focus: 'RF & signal processing · grants (MDA Space)',
-		bio: 'Industry intern at MDA Space / Airbus Montréal — one of the most demanding embedded electronics environments in the Quebec aerospace cluster. Handles RF, signal processing, and the non-dilutive funding pipeline (IRAP, SR&ED, CRIC).',
-		hue: '#f59e0b',
-		photo: eithanPhoto,
+		focus: 'Signal processing and grants',
+		bio: 'Industry intern at MDA Space / Airbus Montréal. Handles RF, signal processing, and the non-dilutive funding pipeline.',
+		photo: '/team/eithan.jpeg',
 		linkedin: 'https://www.linkedin.com/in/eithan-kuri-valdovinos/',
 		email: 'e_kuriva@live.concordia.ca',
 	},
 	{
 		name: 'Daniel Akbari',
 		role: 'VP Engineering',
-		focus: 'Edge inference & developer infrastructure',
-		bio: 'Dual internships in project management and data analysis — an unusually broad profile for an undergraduate engineer. Owns customer discovery, pilot negotiation, and the financial model alongside core engineering work.',
-		hue: '#c084fc',
-		photo: danielPhoto,
+		focus: 'Edge inference and infrastructure',
+		bio: 'Dual internships in project management and data analysis. Owns customer discovery, pilot negotiation, and the financial model alongside core engineering.',
+		photo: '/team/daniel.jpeg',
 		linkedin: 'https://www.linkedin.com/in/daniel-akbari',
 		email: 'daniel.akbari@mail.concordia.ca',
 	},
 	{
 		name: 'Sepehr Ghasemzadeh',
 		role: 'CBO',
-		focus: 'Business development & customer discovery',
-		bio: 'Director of Projects at IEEE Concordia since summer 2024, leading multi-person technical teams through full project lifecycles. Owns embedded systems integration and the go-to-market motion into Quebec plants.',
-		hue: '#f472b6',
-		photo: sepehrPhoto,
+		focus: 'Business development',
+		bio: 'Director of Projects at IEEE Concordia since 2024. Owns embedded systems integration and Quebec go-to-market.',
+		photo: '/team/sepehr.jpeg',
 		linkedin: 'https://www.linkedin.com/in/sepehr-ghasemzadeh-moghaddam/',
 		email: 'se_gha@live.concordia.ca',
 	},
 ];
 ---
 
-<section id="team" class="relative py-28 md:py-36">
+<section id="team" class="relative py-24 md:py-32">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
 				<span class="section-eyebrow">The team</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-				Six engineers &mdash; each owns <span class="text-gradient-accent">one discipline the moat depends on</span>.
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+				Six engineers. <span class="text-accent">Each one a discipline.</span>
 			</h2>
 			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-				MidMon requires simultaneous competency in FPGA design, RF signal processing, edge ML,
-				embedded systems, cloud integration, and industrial B2B sales. This team was assembled
-				specifically because each member covers exactly one of those verticals.
+				FPGA, signal processing, edge ML, embedded systems, cloud, and industrial sales. One
+				owner per vertical, no gaps.
 			</p>
 		</div>
 
-		<div class="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 			{
 				team.map((member, i) => (
-					<article data-reveal data-reveal-delay={String((i % 3) + 1)} class="card group relative overflow-hidden p-6">
-						<span class="glow-ring" />
+					<article data-reveal data-reveal-delay={String((i % 3) + 1)} class="card p-6">
 						<div class="flex items-start gap-4">
-							<div
-								class="relative inline-flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl"
-								style={`border: 1px solid ${member.hue}55;`}
-							>
-								<span
-									class="absolute inset-0 -z-10 rounded-2xl opacity-40 blur-md"
-									style={`background: ${member.hue};`}
-								/>
-								<Image
+							<div class="relative inline-flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10">
+								<img
 									src={member.photo}
 									alt={`Portrait of ${member.name}`}
-									width={128}
-									height={128}
+									width="128"
+									height="128"
+									loading="lazy"
+									decoding="async"
 									class="h-full w-full object-cover"
 								/>
 							</div>
 							<div class="min-w-0 flex-1">
 								<h3 class="text-base font-semibold text-white">{member.name}</h3>
-								<p class="text-xs tracking-wide text-[var(--color-accent)] uppercase">{member.role}</p>
+								<p class="text-xs tracking-wide text-[#5eead4] uppercase">{member.role}</p>
 								<p class="mt-1 text-xs text-[var(--color-text-dim)]">{member.focus}</p>
 							</div>
 						</div>
@@ -139,18 +118,9 @@ const team = [
 								</svg>
 							</a>
 						</div>
-
-						<div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-							<div class="shimmer absolute inset-0 rounded-[inherit]" />
-						</div>
 					</article>
 				))
 			}
-		</div>
-
-		<div data-reveal class="mx-auto mt-14 max-w-3xl text-center text-sm text-[var(--color-text-muted)]">
-			Every member has held a named, elected leadership role and delivered under real
-			accountability. <span class="text-white">Track record over titles.</span>
 		</div>
 	</div>
 </section>

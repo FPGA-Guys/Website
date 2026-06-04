@@ -1,109 +1,63 @@
 ---
-const layers = [
+const pillars = [
 	{
-		label: 'Sensor node',
-		title: 'Multi-modal MEMS + ADC frontend',
-		desc: 'Vibration (MEMS accelerometer), AC current (Rogowski / Hall), and acoustics (MEMS microphone) sampled and stamped on-board.',
-		chips: ['STM32U5', 'Sub-2 µJ / sample', 'IP-rated enclosure'],
+		eyebrow: 'Edge AI',
+		title: 'Inference on the sensor.',
+		body: 'Custom edge AI accelerator runs the anomaly model directly on the node. Sub-2 ms inference. Under 5 watts. No round-trip to the cloud.',
 	},
 	{
-		label: 'Edge AI',
-		title: 'FPGA-NPU codesign',
-		desc: 'AMD Versal AI Edge running transformer-class anomaly detection in hardware. Sub-2 ms inference at under 5 W — the differentiator the incumbents can\u2019t copy with software alone.',
-		chips: ['AMD Versal AI Edge', 'Hailo-8L NPU', 'INT8 / INT4 quantized'],
+		eyebrow: 'Self-installing mesh',
+		title: 'Connects itself.',
+		body: 'Sensors discover the gateway and the gateway routes itself onto the existing plant network. Nothing for IT to provision.',
 	},
 	{
-		label: 'Wireless mesh',
-		title: 'BLE 5.4 mesh · Sub-GHz fallback',
-		desc: 'Reliable communication across noisy factory floors with no wiring infrastructure. Self-healing topology, AES-encrypted, deterministic latency budgets.',
-		chips: ['BLE 5.4 mesh', 'Sub-GHz fallback', 'Self-healing'],
+		eyebrow: 'Privacy by design',
+		title: 'Your data, on your floor.',
+		body: 'Telemetry can stay on-prem indefinitely. The dashboard runs locally. The cloud is optional.',
 	},
 	{
-		label: 'Gateway',
-		title: 'Self-installing edge gateway',
-		desc: 'NXP i.MX 8M Plus with LTE-M. Auto-onboards new nodes, handles model versioning and OTA bitstream updates, mediates the plant\u2019s CMMS integration.',
-		chips: ['NXP i.MX 8M Plus', 'LTE-M', 'OTA bitstreams'],
-	},
-	{
-		label: 'Cloud',
-		title: 'Lightweight dashboard + CMMS bridge',
-		desc: 'AWS IoT Core for telemetry routing, a fleet dashboard for plant managers, and a standard API into SAP PM and the rest of the CMMS world.',
-		chips: ['AWS IoT Core', 'SAP PM · CMMS', 'Standard REST API'],
+		eyebrow: 'Integrates where you already work',
+		title: 'No screen to learn.',
+		body: 'Alerts flow into the systems plant managers already use, from CMMS to email to SCADA historians.',
 	},
 ];
 ---
 
-<section id="tech" class="relative py-28 md:py-36">
+<section id="tech" class="relative py-24 md:py-32">
 	<div class="container-x">
-		<div class="grid items-start gap-12 lg:grid-cols-[1fr_1.4fr]">
-			<div class="lg:sticky lg:top-32">
-				<div data-reveal>
-					<span class="section-eyebrow">Production target · v1 silicon</span>
-				</div>
-				<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">
-					Five layers, <span class="text-gradient-accent">one defensible moat</span>.
-				</h2>
-				<p data-reveal data-reveal-delay="2" class="mt-5 text-[var(--color-text-muted)] md:text-lg">
-					The Phase 1 MVP proves the architecture on commodity hardware. This is what v1 ships
-					on: a purpose-built FPGA-NPU codesign that does transformer-class inference on a
-					5-watt budget &mdash; the part nobody else has productized for the mid-market.
-					<a href="#mvp" class="ml-1 underline decoration-[#2dd4bf]/40 underline-offset-4 hover:decoration-[#2dd4bf]">See what's on the bench today &rarr;</a>
-				</p>
-
-				<div data-reveal data-reveal-delay="3" class="mt-8 grid grid-cols-2 gap-3">
-					<div class="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Inference</div>
-						<div class="mt-1 font-mono text-2xl font-semibold text-white">&lt; 2 ms</div>
-					</div>
-					<div class="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Power</div>
-						<div class="mt-1 font-mono text-2xl font-semibold text-white">&lt; 5 W</div>
-					</div>
-					<div class="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Install time</div>
-						<div class="mt-1 font-mono text-2xl font-semibold text-white">&lt; 15 min</div>
-					</div>
-					<div class="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">Network dep.</div>
-						<div class="mt-1 font-mono text-2xl font-semibold text-[#2dd4bf]">none</div>
-					</div>
-				</div>
+		<div class="mx-auto max-w-3xl text-center">
+			<div data-reveal>
+				<span class="section-eyebrow">The tech</span>
 			</div>
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+				Edge AI, productized for <span class="text-accent">the floor</span>.
+			</h2>
+			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
+				Four design choices that let us hit the price point. Each one is what mid-market plants
+				actually need.
+			</p>
+		</div>
 
-			<!-- Stack diagram -->
-			<div class="space-y-4">
-				{
-					layers.map((layer, i) => (
-						<article data-reveal data-reveal-delay={String((i % 4) + 1)} class="card relative overflow-hidden p-6">
-							<span class="glow-ring" />
-							<div class="flex items-start gap-4">
-								<div class="flex shrink-0 flex-col items-center">
-									<span class="font-mono text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
-										L{i + 1}
-									</span>
-									<span class="mt-1 h-full min-h-[40px] w-px bg-gradient-to-b from-[#2dd4bf]/40 to-transparent" />
-								</div>
-								<div class="min-w-0 flex-1">
-									<div class="flex flex-wrap items-baseline justify-between gap-2">
-										<div>
-											<div class="text-[10px] tracking-widest text-[var(--color-accent)] uppercase">
-												{layer.label}
-											</div>
-											<h3 class="mt-1 text-lg font-semibold text-white">{layer.title}</h3>
-										</div>
-									</div>
-									<p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{layer.desc}</p>
-									<div class="mt-4 flex flex-wrap gap-2">
-										{layer.chips.map((c) => (
-											<span class="chip font-mono text-[11px]">{c}</span>
-										))}
-									</div>
-								</div>
-							</div>
-						</article>
-					))
-				}
-			</div>
+		<div class="mt-14 grid gap-6 md:grid-cols-2">
+			{
+				pillars.map((p, i) => (
+					<article data-reveal data-reveal-delay={String((i % 2) + 1)} class="card p-7">
+						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
+							{p.eyebrow}
+						</div>
+						<h3 class="mt-2 text-xl font-semibold text-white">{p.title}</h3>
+						<p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{p.body}</p>
+					</article>
+				))
+			}
+		</div>
+
+		<div data-reveal class="mt-12 flex flex-col items-center gap-3 text-center">
+			<p class="max-w-2xl text-sm text-[var(--color-text-muted)]">
+				The Phase 1 MVP runs on commodity dev hardware to prove the architecture. Production
+				silicon and the manufacturable form factor follow.
+			</p>
+			<a href="#mvp" class="btn btn-ghost">See the MVP</a>
 		</div>
 	</div>
 </section>
