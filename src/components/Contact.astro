@@ -4,20 +4,20 @@ import { CONTACT_EMAIL } from '../consts';
 const audiences = [
 	{
 		label: 'Plant manager',
-		body: 'Curious if a pilot fits your line? 15 minutes, we walk through install and economics.',
+		body: "Curious if a pilot fits your line? Fifteen minutes, we walk through install and what changes for your team.",
 	},
 	{
-		label: 'Investor',
-		body: 'We\u2019re mapping the lead and co-invest pool for our seed. Happy to share the data room.',
+		label: 'Maintenance engineer',
+		body: 'Want to see the data, the alert flow, and how it maps to your CMMS? Happy to demo on real recorded faults.',
 	},
 	{
-		label: 'Engineer',
-		body: 'We\u2019re hiring across FPGA, embedded, ML, and systems. Paid internships included.',
+		label: 'Reliability lead',
+		body: "Building out a condition-monitoring program? We can talk about coverage, baselines, and false-positive handling.",
 	},
 ];
 ---
 
-<section id="contact" class="relative py-24 md:py-32">
+<section id="contact" class="relative py-20 md:py-24">
 	<div class="container-x">
 		<div class="card relative overflow-hidden p-8 md:p-14">
 			<div class="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr]">
@@ -25,11 +25,11 @@ const audiences = [
 					<div data-reveal>
 						<span class="section-eyebrow">Get in touch</span>
 					</div>
-					<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+					<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl" style="color: var(--color-text);">
 						Talk to the <span class="text-accent">team</span>.
 					</h2>
-					<p data-reveal data-reveal-delay="2" class="mt-5 max-w-xl text-[var(--color-text-muted)] md:text-lg">
-						Everything goes to Soma. No SDRs. Reply within one business day.
+					<p data-reveal data-reveal-delay="2" class="mt-5 max-w-xl md:text-lg" style="color: var(--color-text-muted);">
+						Everything goes straight to our founder. Reply within one business day.
 					</p>
 
 					<div data-reveal data-reveal-delay="3" class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -47,7 +47,7 @@ const audiences = [
 						</a>
 					</div>
 
-					<p data-reveal data-reveal-delay="4" class="mt-6 text-xs text-[var(--color-text-dim)]">
+					<p data-reveal data-reveal-delay="4" class="mt-6 text-xs" style="color: var(--color-text-dim);">
 						Concordia University . Gina Cody School of Engineering . Montréal, QC
 					</p>
 				</div>
@@ -55,14 +55,14 @@ const audiences = [
 				<div data-reveal class="space-y-3">
 					{
 						audiences.map((a) => (
-							<div class="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-[#2dd4bf]/30 hover:bg-[#2dd4bf]/[0.04]">
+							<div class="rounded-2xl border p-5 transition-colors" style="border-color: var(--color-border); background: var(--color-elev-1);">
 								<div class="flex items-center gap-2">
-									<span class="inline-flex h-2 w-2 rounded-full bg-[#2dd4bf]" />
-									<div class="text-xs font-medium tracking-widest text-[#5eead4] uppercase">
+									<span class="inline-flex h-2 w-2 rounded-full" style="background: var(--color-accent);" />
+									<div class="text-xs font-medium tracking-widest uppercase text-accent">
 										{a.label}
 									</div>
 								</div>
-								<p class="mt-2 text-sm text-[var(--color-text-muted)]">{a.body}</p>
+								<p class="mt-2 text-sm" style="color: var(--color-text-muted);">{a.body}</p>
 							</div>
 						))
 					}

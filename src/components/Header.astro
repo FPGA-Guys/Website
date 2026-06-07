@@ -1,29 +1,32 @@
 ---
 import { SITE_TITLE, CONTACT_LABEL } from '../consts';
 import BrandMark from './BrandMark.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const { pathname } = Astro.url;
 
 const navLinks = [
-	{ href: '/#problem', label: 'Problem' },
-	{ href: '/#how', label: 'How it works' },
-	{ href: '/#mvp', label: 'MVP' },
-	{ href: '/#pricing', label: 'Pricing' },
-	{ href: '/#team', label: 'Team' },
-	{ href: '/#updates', label: 'Updates' },
+	{ href: '/', label: 'Home' },
+	{ href: '/problem', label: 'Problem' },
+	{ href: '/product', label: 'Product' },
+	{ href: '/team', label: 'Team' },
+	{ href: '/contact', label: 'Contact' },
 ];
+
+const isActive = (href: string) =>
+	href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
 ---
 
 <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
 	<div class="container-x">
 		<nav
-			class="mt-4 flex items-center justify-between gap-6 rounded-2xl border border-white/10 bg-[rgba(7,16,31,0.65)] px-4 py-3 backdrop-blur-xl md:px-6"
+			id="site-nav"
+			class="mt-4 flex items-center justify-between gap-6 rounded-2xl border px-4 py-3 backdrop-blur-xl md:px-6"
+			style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-bg) 75%, transparent);"
 		>
 			<a href="/" class="group flex items-center gap-2.5">
 				<BrandMark size={28} idSuffix="header" />
-				<span class="text-base font-semibold tracking-tight text-white">{SITE_TITLE}</span>
-				<span
-					class="ml-1 hidden rounded-full border border-[#2dd4bf]/30 bg-[#2dd4bf]/10 px-2 py-0.5 text-[10px] font-medium tracking-widest text-[#2dd4bf] uppercase sm:inline-block"
-					>v0 . stealth</span
-				>
+				<span class="text-base font-semibold tracking-tight" style="color: var(--color-text);">{SITE_TITLE}</span>
 			</a>
 
 			<ul class="hidden items-center gap-1 lg:flex">
@@ -32,7 +35,11 @@ const navLinks = [
 						<li>
 							<a
 								href={link.href}
-								class="rounded-full px-3 py-1.5 text-sm text-[var(--color-text-muted)] transition-colors hover:bg-white/5 hover:text-white"
+								class={`rounded-full px-3 py-1.5 text-sm transition-colors hover:bg-[var(--color-elev-2)] ${
+									isActive(link.href)
+										? 'text-[var(--color-text)] bg-[var(--color-elev-1)]'
+										: 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
+								}`}
 							>
 								{link.label}
 							</a>
@@ -42,7 +49,8 @@ const navLinks = [
 			</ul>
 
 			<div class="flex items-center gap-2">
-				<a href="/#contact" class="btn btn-primary">
+				<ThemeToggle />
+				<a href="/contact" class="btn btn-primary hidden sm:inline-flex">
 					<span>{CONTACT_LABEL}</span>
 					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
 						<path
@@ -53,31 +61,75 @@ const navLinks = [
 							stroke-linejoin="round"></path>
 					</svg>
 				</a>
+				<button
+					id="mobile-menu-btn"
+					type="button"
+					aria-label="Open menu"
+					class="theme-toggle lg:hidden"
+				>
+					<svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+						<path d="M2 4h12M2 8h12M2 12h12" />
+					</svg>
+				</button>
 			</div>
 		</nav>
+
+		<!-- Mobile menu -->
+		<div
+			id="mobile-menu"
+			class="mt-2 hidden rounded-2xl border p-3 backdrop-blur-xl lg:hidden"
+			style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-bg) 92%, transparent);"
+		>
+			<ul class="space-y-1">
+				{
+					navLinks.map((link) => (
+						<li>
+							<a
+								href={link.href}
+								class={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+									isActive(link.href)
+										? 'text-[var(--color-text)] bg-[var(--color-elev-2)]'
+										: 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-elev-1)]'
+								}`}
+							>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 	</div>
 </header>
 
 <script is:inline>
 	(function () {
 		const header = document.getElementById('site-header');
-		if (!header) return;
+		const nav = document.getElementById('site-nav');
 		const update = () => {
+			if (!nav) return;
 			if (window.scrollY > 12) {
-				header.classList.add('is-scrolled');
+				nav.classList.add('is-scrolled');
 			} else {
-				header.classList.remove('is-scrolled');
+				nav.classList.remove('is-scrolled');
 			}
 		};
 		update();
 		window.addEventListener('scroll', update, { passive: true });
+
+		const menuBtn = document.getElementById('mobile-menu-btn');
+		const menu = document.getElementById('mobile-menu');
+		if (menuBtn && menu) {
+			menuBtn.addEventListener('click', () => {
+				menu.classList.toggle('hidden');
+			});
+		}
 	})();
 </script>
 
 <style>
-	#site-header.is-scrolled nav {
-		background: rgba(4, 8, 15, 0.82);
-		box-shadow: 0 12px 40px -20px rgba(0, 0, 0, 0.85);
-		border-color: rgba(148, 197, 220, 0.18);
+	#site-nav.is-scrolled {
+		border-color: var(--color-border-strong) !important;
+		box-shadow: 0 12px 40px -20px rgba(0, 0, 0, 0.25);
 	}
 </style>

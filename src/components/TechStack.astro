@@ -3,12 +3,12 @@ const pillars = [
 	{
 		eyebrow: 'Edge AI',
 		title: 'Inference on the sensor.',
-		body: 'Custom edge AI accelerator runs the anomaly model directly on the node. Sub-2 ms inference. Under 5 watts. No round-trip to the cloud.',
+		body: 'The anomaly model runs directly on the node. Sub-2 ms inference. Under 5 watts. No round-trip to the cloud.',
 	},
 	{
 		eyebrow: 'Self-installing mesh',
 		title: 'Connects itself.',
-		body: 'Sensors discover the gateway and the gateway routes itself onto the existing plant network. Nothing for IT to provision.',
+		body: 'Sensors discover the gateway, the gateway routes itself onto your existing network. Nothing for IT to provision.',
 	},
 	{
 		eyebrow: 'Privacy by design',
@@ -16,48 +16,36 @@ const pillars = [
 		body: 'Telemetry can stay on-prem indefinitely. The dashboard runs locally. The cloud is optional.',
 	},
 	{
-		eyebrow: 'Integrates where you already work',
-		title: 'No screen to learn.',
-		body: 'Alerts flow into the systems plant managers already use, from CMMS to email to SCADA historians.',
+		eyebrow: 'Integrates where you work',
+		title: 'No new dashboard to learn.',
+		body: 'Alerts flow into the systems your maintenance team already uses, from CMMS to email to SCADA historians.',
 	},
 ];
 ---
 
-<section id="tech" class="relative py-24 md:py-32">
+<section id="tech" class="relative py-20 md:py-24">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
-				<span class="section-eyebrow">The tech</span>
+				<span class="section-eyebrow">Why it works</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
-				Edge AI, productized for <span class="text-accent">the floor</span>.
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl" style="color: var(--color-text);">
+				Four design choices, built for <span class="text-accent">the floor</span>.
 			</h2>
-			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-				Four design choices that let us hit the price point. Each one is what mid-market plants
-				actually need.
-			</p>
 		</div>
 
 		<div class="mt-14 grid gap-6 md:grid-cols-2">
 			{
 				pillars.map((p, i) => (
 					<article data-reveal data-reveal-delay={String((i % 2) + 1)} class="card p-7">
-						<div class="text-[10px] tracking-widest text-[var(--color-text-dim)] uppercase">
+						<div class="text-[10px] tracking-widest uppercase" style="color: var(--color-text-dim);">
 							{p.eyebrow}
 						</div>
-						<h3 class="mt-2 text-xl font-semibold text-white">{p.title}</h3>
-						<p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{p.body}</p>
+						<h3 class="mt-2 text-xl font-semibold" style="color: var(--color-text);">{p.title}</h3>
+						<p class="mt-3 text-sm leading-relaxed" style="color: var(--color-text-muted);">{p.body}</p>
 					</article>
 				))
 			}
-		</div>
-
-		<div data-reveal class="mt-12 flex flex-col items-center gap-3 text-center">
-			<p class="max-w-2xl text-sm text-[var(--color-text-muted)]">
-				The Phase 1 MVP runs on commodity dev hardware to prove the architecture. Production
-				silicon and the manufacturable form factor follow.
-			</p>
-			<a href="#mvp" class="btn btn-ghost">See the MVP</a>
 		</div>
 	</div>
 </section>

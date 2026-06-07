@@ -3,17 +3,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import Problem from '../components/Problem.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import MVP from '../components/MVP.astro';
-import Comparison from '../components/Comparison.astro';
-import Pricing from '../components/Pricing.astro';
-import TargetCustomers from '../components/TargetCustomers.astro';
-import TechStack from '../components/TechStack.astro';
-import Team from '../components/Team.astro';
-import BackedBy from '../components/BackedBy.astro';
-import BlogUpdates from '../components/BlogUpdates.astro';
-import Contact from '../components/Contact.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
@@ -29,17 +18,30 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<Header />
 		<main>
 			<Hero />
-			<Problem />
-			<HowItWorks />
-			<MVP />
-			<Comparison />
-			<Pricing />
-			<TargetCustomers />
-			<TechStack />
-			<Team />
-			<BackedBy />
-			<BlogUpdates />
-			<Contact />
+
+			<!-- One-sentence pitch + clear path forward -->
+			<section class="relative py-20 md:py-24">
+				<div class="container-x">
+					<div class="mx-auto max-w-3xl text-center">
+						<p data-reveal class="text-xl leading-relaxed md:text-2xl" style="color: var(--color-text);">
+							A sensor bolts onto your motor or pump in fifteen minutes. It learns what
+							healthy looks like, then alerts you in plain language the moment something
+							drifts. No cloud round-trips. No data team. No surprise breakdowns on a Friday
+							afternoon.
+						</p>
+						<div data-reveal data-reveal-delay="1" class="mt-10 flex flex-wrap items-center justify-center gap-3">
+							<a href="/problem" class="btn btn-ghost">The problem we solve</a>
+							<a href="/product" class="btn btn-ghost">How it works</a>
+							<a href="/contact" class="btn btn-primary">
+								Contact us
+								<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+									<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

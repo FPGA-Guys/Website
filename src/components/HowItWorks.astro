@@ -3,44 +3,44 @@ const steps = [
 	{
 		num: '01',
 		title: 'Bolt on',
-		body: 'Magnetic sensor goes on the motor or pump in under 15 minutes. No wiring. No shutdown.',
-		spec: ['Vibration . current . acoustic', 'Magnetic or bolt-on mount', '< 15 min per asset'],
+		body: 'Magnetic sensor goes on the motor or pump in under 15 minutes. No wiring, no shutdown, no IT ticket.',
+		spec: ['Vibration, current, acoustic', 'Magnetic or bolt-on mount', '< 15 min per asset'],
 		icon: 'sensor',
 	},
 	{
 		num: '02',
 		title: 'Detect on device',
-		body: 'AI runs on the sensor itself. Under 5 watts. No data leaves the plant.',
-		spec: ['On-device AI inference', 'Anomaly detection in real time', '< 5 W, sub-2 ms inference'],
+		body: 'AI runs on the sensor itself. Under 5 watts. Your telemetry never leaves the plant.',
+		spec: ['On-device AI inference', 'Real-time anomaly detection', '< 5 W, sub-2 ms inference'],
 		icon: 'chip',
 	},
 	{
 		num: '03',
 		title: 'Connect',
-		body: 'A small gateway picks up alerts wirelessly and pipes them into your existing maintenance system.',
-		spec: ['Wireless mesh, no new wiring', 'Auto-onboards new sensors', 'Standard CMMS / SAP PM API'],
+		body: 'A small gateway picks up alerts wirelessly and forwards them to the systems you already use.',
+		spec: ['Wireless mesh', 'Auto-onboards new sensors', 'Standard CMMS integration'],
 		icon: 'gateway',
 	},
 	{
 		num: '04',
 		title: 'Alert',
-		body: 'After 48 hours of baseline learning, any deviation triggers a plain-language alert with a recommended action.',
+		body: 'After 48 hours of baseline learning, any meaningful deviation triggers a plain-language alert with a recommended action.',
 		spec: ['48h baseline', 'Fault type, severity, action', 'Dashboard, email, or CMMS push'],
 		icon: 'alert',
 	},
 ];
 ---
 
-<section id="how" class="relative py-24 md:py-32">
+<section id="how" class="relative py-20 md:py-24">
 	<div class="container-x">
 		<div class="mx-auto max-w-3xl text-center">
 			<div data-reveal>
 				<span class="section-eyebrow">How it works</span>
 			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl" style="color: var(--color-text);">
 				Sensor to <span class="text-accent">alert</span> in four steps.
 			</h2>
-			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
+			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl md:text-lg" style="color: var(--color-text-muted);">
 				No cloud round-trip. No data team. No network dependency.
 			</p>
 		</div>
@@ -50,23 +50,23 @@ const steps = [
 				steps.map((step, i) => (
 					<article data-reveal data-reveal-delay={String((i % 4) + 1)} class="card relative overflow-hidden p-6">
 						<div class="flex items-start justify-between">
-							<div class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[var(--color-bg)]">
+							<div class="inline-flex h-11 w-11 items-center justify-center rounded-xl border" style="border-color: var(--color-border); background: var(--color-elev-1);">
 								{step.icon === 'sensor' && (
-									<svg class="h-5 w-5 text-[#5eead4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
 										<circle cx="12" cy="12" r="2.5" />
 										<circle cx="12" cy="12" r="6" opacity="0.6" />
 										<circle cx="12" cy="12" r="9.5" opacity="0.3" />
 									</svg>
 								)}
 								{step.icon === 'chip' && (
-									<svg class="h-5 w-5 text-[#5eead4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
 										<rect x="6" y="6" width="12" height="12" rx="2" />
 										<path d="M9 9h6v6H9z" />
 										<path d="M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3" />
 									</svg>
 								)}
 								{step.icon === 'gateway' && (
-									<svg class="h-5 w-5 text-[#5eead4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
 										<rect x="3" y="10" width="18" height="9" rx="2" />
 										<circle cx="7" cy="14.5" r="0.7" fill="currentColor" />
 										<circle cx="10.5" cy="14.5" r="0.7" fill="currentColor" />
@@ -74,22 +74,22 @@ const steps = [
 									</svg>
 								)}
 								{step.icon === 'alert' && (
-									<svg class="h-5 w-5 text-[#5eead4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+									<svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
 										<path d="M3 17h18l-9-13z" />
 										<path d="M12 11v3M12 16.5v.5" />
 									</svg>
 								)}
 							</div>
-							<span class="font-mono text-sm text-[var(--color-text-dim)]">{step.num}</span>
+							<span class="font-mono text-sm" style="color: var(--color-text-dim);">{step.num}</span>
 						</div>
 
-						<h3 class="mt-5 text-lg font-semibold text-white">{step.title}</h3>
-						<p class="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">{step.body}</p>
+						<h3 class="mt-5 text-lg font-semibold" style="color: var(--color-text);">{step.title}</h3>
+						<p class="mt-2 text-sm leading-relaxed" style="color: var(--color-text-muted);">{step.body}</p>
 
-						<ul class="mt-5 space-y-2 border-t border-white/5 pt-4">
+						<ul class="mt-5 space-y-2 border-t pt-4" style="border-color: var(--color-border);">
 							{step.spec.map((s) => (
-								<li class="flex items-start gap-2 text-xs text-[var(--color-text-muted)]">
-									<span class="mt-0.5 inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#2dd4bf]/60" />
+								<li class="flex items-start gap-2 text-xs" style="color: var(--color-text-muted);">
+									<span class="mt-0.5 inline-flex h-1.5 w-1.5 shrink-0 rounded-full" style="background: var(--color-accent);" />
 									{s}
 								</li>
 							))}
@@ -97,19 +97,6 @@ const steps = [
 					</article>
 				))
 			}
-		</div>
-
-		<div data-reveal class="mx-auto mt-12 max-w-3xl">
-			<div class="flex flex-col items-center gap-3 rounded-2xl border border-[#2dd4bf]/20 bg-[#2dd4bf]/[0.04] px-6 py-5 text-center md:flex-row md:text-left">
-				<div class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#2dd4bf]/40 bg-[#04080f]">
-					<svg class="h-5 w-5 text-[#5eead4]" viewBox="0 0 16 16" fill="none">
-						<path d="M3 8.5L7 12 13 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
-					</svg>
-				</div>
-				<p class="flex-1 text-sm text-[var(--color-text-muted)]">
-					A single prevented failure at a typical food and beverage plant pays back the deployment. <span class="text-white">ROI is immediate.</span>
-				</p>
-			</div>
 		</div>
 	</div>
 </section>

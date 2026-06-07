@@ -4,7 +4,7 @@ const team = [
 		name: 'Soma Chénard-Koné',
 		role: 'CEO',
 		focus: 'Strategy and coordination',
-		bio: 'Founder. Director of Projects at IEEE Concordia. Originated MidMon and assembled the team.',
+		bio: 'Founder. Director of Projects at IEEE Concordia. Started MidMon and assembled the team.',
 		photo: '/team/soma.png',
 		linkedin: 'https://www.linkedin.com/in/soma-chenardkone/',
 		email: 'so_chena@live.concordia.ca',
@@ -12,8 +12,8 @@ const team = [
 	{
 		name: 'Anabella Kowalski',
 		role: 'CTO',
-		focus: 'Hardware architecture lead',
-		bio: 'VP Marketing at IEEE Concordia. Past Natural Resources Canada role. Leads the edge AI hardware design.',
+		focus: 'Hardware architecture',
+		bio: 'VP Marketing at IEEE Concordia. Past role at Natural Resources Canada. Leads the edge AI hardware design.',
 		photo: '/team/anabella.jpeg',
 		linkedin: 'https://www.linkedin.com/in/anabella-kowalski-3552k',
 		email: 'an_kowal@live.concordia.ca',
@@ -22,7 +22,7 @@ const team = [
 		name: 'Nirmal Patel',
 		role: 'CPO',
 		focus: 'Product and edge ML',
-		bio: 'VP of Projects at IEEE Concordia. Owns the anomaly detection models and their deployment to the inference target.',
+		bio: 'VP of Projects at IEEE Concordia. Owns the anomaly detection models and their deployment to the device.',
 		photo: '/team/nirmal.jpeg',
 		linkedin: 'https://www.linkedin.com/in/nirmalpatelxyz/',
 		email: 'pa_nirm@live.concordia.ca',
@@ -30,8 +30,8 @@ const team = [
 	{
 		name: 'Eithan Kuri Valdovinos',
 		role: 'CFO',
-		focus: 'Signal processing and grants',
-		bio: 'Industry intern at MDA Space / Airbus Montréal. Handles RF, signal processing, and the non-dilutive funding pipeline.',
+		focus: 'Signal processing',
+		bio: 'Industry intern at MDA Space / Airbus Montréal. Handles RF and signal processing.',
 		photo: '/team/eithan.jpeg',
 		linkedin: 'https://www.linkedin.com/in/eithan-kuri-valdovinos/',
 		email: 'e_kuriva@live.concordia.ca',
@@ -40,7 +40,7 @@ const team = [
 		name: 'Daniel Akbari',
 		role: 'VP Engineering',
 		focus: 'Edge inference and infrastructure',
-		bio: 'Dual internships in project management and data analysis. Owns customer discovery, pilot negotiation, and the financial model alongside core engineering.',
+		bio: 'Dual internships in project management and data analysis. Owns infrastructure and customer onboarding.',
 		photo: '/team/daniel.jpeg',
 		linkedin: 'https://www.linkedin.com/in/daniel-akbari',
 		email: 'daniel.akbari@mail.concordia.ca',
@@ -49,7 +49,7 @@ const team = [
 		name: 'Sepehr Ghasemzadeh',
 		role: 'CBO',
 		focus: 'Business development',
-		bio: 'Director of Projects at IEEE Concordia since 2024. Owns embedded systems integration and Quebec go-to-market.',
+		bio: 'Director of Projects at IEEE Concordia since 2024. Owns embedded systems integration and customer outreach.',
 		photo: '/team/sepehr.jpeg',
 		linkedin: 'https://www.linkedin.com/in/sepehr-ghasemzadeh-moghaddam/',
 		email: 'se_gha@live.concordia.ca',
@@ -57,27 +57,14 @@ const team = [
 ];
 ---
 
-<section id="team" class="relative py-24 md:py-32">
+<section id="team" class="relative py-20 md:py-24">
 	<div class="container-x">
-		<div class="mx-auto max-w-3xl text-center">
-			<div data-reveal>
-				<span class="section-eyebrow">The team</span>
-			</div>
-			<h2 data-reveal data-reveal-delay="1" class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
-				Six engineers. <span class="text-accent">Each one a discipline.</span>
-			</h2>
-			<p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-2xl text-[var(--color-text-muted)] md:text-lg">
-				FPGA, signal processing, edge ML, embedded systems, cloud, and industrial sales. One
-				owner per vertical, no gaps.
-			</p>
-		</div>
-
-		<div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="mt-2 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 			{
 				team.map((member, i) => (
 					<article data-reveal data-reveal-delay={String((i % 3) + 1)} class="card p-6">
 						<div class="flex items-start gap-4">
-							<div class="relative inline-flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10">
+							<div class="relative inline-flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border" style="border-color: var(--color-border);">
 								<img
 									src={member.photo}
 									alt={`Portrait of ${member.name}`}
@@ -89,12 +76,12 @@ const team = [
 								/>
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="text-base font-semibold text-white">{member.name}</h3>
-								<p class="text-xs tracking-wide text-[#5eead4] uppercase">{member.role}</p>
-								<p class="mt-1 text-xs text-[var(--color-text-dim)]">{member.focus}</p>
+								<h3 class="text-base font-semibold" style="color: var(--color-text);">{member.name}</h3>
+								<p class="text-xs tracking-wide uppercase text-accent">{member.role}</p>
+								<p class="mt-1 text-xs" style="color: var(--color-text-dim);">{member.focus}</p>
 							</div>
 						</div>
-						<p class="mt-5 text-sm leading-relaxed text-[var(--color-text-muted)]">{member.bio}</p>
+						<p class="mt-5 text-sm leading-relaxed" style="color: var(--color-text-muted);">{member.bio}</p>
 
 						<div class="mt-5 flex items-center gap-2">
 							<a
@@ -102,7 +89,8 @@ const team = [
 								target="_blank"
 								rel="noopener"
 								aria-label={`${member.name} on LinkedIn`}
-								class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-xs text-[var(--color-text-muted)] transition-colors hover:border-white/30 hover:text-white"
+								class="inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs transition-colors"
+								style="border-color: var(--color-border); background: var(--color-elev-1); color: var(--color-text-muted);"
 							>
 								<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
 									<path d="M3.07 4.7a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2ZM1.6 5.92h2.94v8.58H1.6V5.92ZM6.34 5.92h2.82v1.17h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.49 1.94 3.49 4.46v4.47h-2.93v-3.96c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08v4.03H6.34V5.92Z" />
@@ -111,7 +99,8 @@ const team = [
 							<a
 								href={`mailto:${member.email}`}
 								aria-label={`Email ${member.name}`}
-								class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-xs text-[var(--color-text-muted)] transition-colors hover:border-white/30 hover:text-white"
+								class="inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs transition-colors"
+								style="border-color: var(--color-border); background: var(--color-elev-1); color: var(--color-text-muted);"
 							>
 								<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<path d="M2 4l6 5 6-5M2 4v8h12V4M2 4h12" />

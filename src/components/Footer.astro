@@ -6,54 +6,38 @@ const today = new Date();
 
 const columns = [
 	{
-		title: 'Product',
+		title: 'Site',
 		links: [
-			{ label: 'How it works', href: '/#how' },
-			{ label: 'Phase 1 MVP', href: '/#mvp' },
-			{ label: 'Pricing', href: '/#pricing' },
-			{ label: 'Tech stack', href: '/#tech' },
+			{ label: 'Home', href: '/' },
+			{ label: 'Problem', href: '/problem' },
+			{ label: 'Product', href: '/product' },
+			{ label: 'Team', href: '/team' },
+			{ label: 'Contact', href: '/contact' },
 		],
 	},
 	{
-		title: 'Company',
+		title: 'Reach us',
 		links: [
-			{ label: 'Team', href: '/#team' },
-			{ label: 'Updates', href: '/#updates' },
-			{ label: 'Backed by', href: '/#backed' },
-			{ label: 'Contact', href: '/#contact' },
-		],
-	},
-	{
-		title: 'Connect',
-		links: [
-			{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/soma-chenardkone/' },
 			{ label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-			{ label: 'Concordia . Gina Cody', href: 'https://www.concordia.ca/ginacody.html' },
-			{ label: 'IEEE Concordia', href: '#' },
+			{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/soma-chenardkone/' },
 		],
 	},
 ];
 ---
 
-<footer id="contact-footer" class="relative mt-24 border-t border-white/5 bg-[var(--color-bg-soft)]">
-	<div
-		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-[#2dd4bf]/40 to-transparent"
-	>
-	</div>
-	<div class="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-[0.2]"></div>
-
-	<div class="container-x py-20">
-		<div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+<footer class="relative mt-16 border-t" style="border-color: var(--color-border); background: var(--color-bg-soft);">
+	<div class="container-x py-16">
+		<div class="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr]">
 			<div data-reveal class="max-w-md">
 				<a href="/" class="inline-flex items-center gap-2.5">
-					<BrandMark size={32} idSuffix="footer" />
-					<span class="text-lg font-semibold tracking-tight text-white">{SITE_TITLE}</span>
+					<BrandMark size={28} idSuffix="footer" />
+					<span class="text-base font-semibold tracking-tight" style="color: var(--color-text);">{SITE_TITLE}</span>
 				</a>
-				<p class="mt-5 text-sm leading-relaxed text-[var(--color-text-muted)]">
+				<p class="mt-5 text-sm leading-relaxed" style="color: var(--color-text-muted);">
 					Predictive maintenance for mid-market manufacturers. Self-installing sensors,
-					on-device AI, under $10K per line.
+					on-device AI, plain-language alerts.
 				</p>
-				<p class="mt-4 text-xs text-[var(--color-text-dim)]">
+				<p class="mt-4 text-xs" style="color: var(--color-text-dim);">
 					Built at Concordia University . Gina Cody School of Engineering . Montréal, QC
 				</p>
 			</div>
@@ -61,13 +45,14 @@ const columns = [
 			{
 				columns.map((col, i) => (
 					<div data-reveal data-reveal-delay={String(i + 1)}>
-						<h4 class="text-xs font-semibold tracking-widest text-white uppercase">{col.title}</h4>
+						<h4 class="text-xs font-semibold tracking-widest uppercase" style="color: var(--color-text);">{col.title}</h4>
 						<ul class="mt-5 space-y-3 text-sm">
 							{col.links.map((link) => (
 								<li>
 									<a
 										href={link.href}
-										class="text-[var(--color-text-muted)] transition-colors hover:text-white"
+										class="transition-colors hover:underline"
+										style="color: var(--color-text-muted);"
 									>
 										{link.label}
 									</a>
@@ -79,22 +64,19 @@ const columns = [
 			}
 		</div>
 
-		<div class="divider-soft mt-16"></div>
+		<div class="divider-soft mt-12"></div>
 
 		<div
-			class="mt-8 flex flex-col items-start justify-between gap-4 text-xs text-[var(--color-text-dim)] md:flex-row md:items-center"
+			class="mt-6 flex flex-col items-start justify-between gap-3 text-xs md:flex-row md:items-center"
+			style="color: var(--color-text-dim);"
 		>
-			<p>&copy; {today.getFullYear()} {SITE_TITLE} . A Concordia engineering venture. All rights reserved.</p>
-			<div class="flex items-center gap-5">
-				<a href="#" class="hover:text-white">Privacy</a>
-				<a href="#" class="hover:text-white">Terms</a>
-				<div class="flex items-center gap-2">
-					<span class="relative flex h-2 w-2">
-						<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"></span>
-						<span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-					</span>
-					<span>Phase 1 in progress</span>
-				</div>
+			<p>&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.</p>
+			<div class="flex items-center gap-2">
+				<span class="relative flex h-2 w-2">
+					<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"></span>
+					<span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+				</span>
+				<span>Phase 1 in progress</span>
 			</div>
 		</div>
 	</div>
