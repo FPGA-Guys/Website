@@ -1,21 +1,18 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Contact from '../components/Contact.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead
-			title={`Contact . ${SITE_TITLE}`}
-			description="Talk to the MidMon team."
-		/>
-	</head>
-	<body>
-		<Header />
+<BaseLayout
+	title={`Contact . ${SITE_TITLE}`}
+	description="Talk to the MidMon team."
+>
+	<Header />
 		<main class="pt-36 pb-24 md:pt-44">
 			<section class="container-x">
 				<div class="mx-auto max-w-3xl text-center">
@@ -34,6 +31,5 @@ import { SITE_TITLE } from '../consts';
 
 			<Contact />
 		</main>
-		<Footer />
-	</body>
-</html>
+	<Footer />
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import { PortableText as PortableTextRenderer } from 'astro-portabletext';
+import type { PortableTextBlock } from '@portabletext/types';
+import SanityBodyImage from './SanityBodyImage.astro';
+
+interface Props {
+	value: PortableTextBlock[] | null | undefined;
+}
+
+const { value } = Astro.props;
+
+const components = {
+	type: {
+		image: SanityBodyImage,
+	},
+};
+---
+
+{
+	value && value.length > 0 ? (
+		<div class="blog-prose">
+			<PortableTextRenderer value={value} components={components} />
+		</div>
+	) : null
+}
+
+<style>
+	.blog-prose :global(p) {
+		margin: 1.25rem 0;
+		line-height: 1.75;
+		color: var(--color-text-muted);
+	}
+	.blog-prose :global(h2) {
+		margin: 2.5rem 0 1rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+	.blog-prose :global(h3) {
+		margin: 2rem 0 0.75rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--color-text);
+	}
+	.blog-prose :global(blockquote) {
+		margin: 1.5rem 0;
+		padding-left: 1rem;
+		border-left: 3px solid var(--color-accent);
+		color: var(--color-text);
+	}
+	.blog-prose :global(ul),
+	.blog-prose :global(ol) {
+		margin: 1rem 0 1rem 1.25rem;
+		color: var(--color-text-muted);
+	}
+	.blog-prose :global(li) {
+		margin: 0.35rem 0;
+	}
+	.blog-prose :global(a) {
+		color: var(--color-accent-soft);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+	.blog-prose :global(code) {
+		font-family: var(--font-mono);
+		font-size: 0.9em;
+		padding: 0.15rem 0.35rem;
+		border-radius: 0.35rem;
+		background: var(--color-elev-2);
+	}
+</style>

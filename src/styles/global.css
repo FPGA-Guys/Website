@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+@source '../components';
+@source '../layouts';
+@source '../pages';
+
+/* Sanity Studio at project root (outside src/). */
+@source '../../sanity.config.ts';
+
 /* ----------------------------------------------------------------------------
    Design tokens
    - Tailwind v4 reads `@theme` to generate utilities. We declare the dark

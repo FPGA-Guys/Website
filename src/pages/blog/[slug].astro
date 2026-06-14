@@ -1,0 +1,37 @@
+---
+export const prerender = true;
+
+import BlogPost from '../../layouts/BlogPost.astro';
+import { fetchSanity, sanityConfigured } from '../../lib/sanity-client';
+import { postBySlugQuery, postSlugsQuery } from '../../sanity/queries';
+import type { PostBySlugQueryResult, PostSlugsQueryResult } from '../../types/sanity.types';
+
+export async function getStaticPaths() {
+	if (!sanityConfigured) {
+		return [];
+	}
+
+	const slugs = await fetchSanity<PostSlugsQueryResult>(postSlugsQuery);
+
+	return slugs.map(({ slug }) => ({
+		params: { slug },
+	}));
+}
+
+const { slug } = Astro.params;
+const post = await fetchSanity<PostBySlugQueryResult>(postBySlugQuery, { slug });
+
+if (!post) {
+	throw new Error(`Blog post not found for slug: ${slug}`);
+}
+---
+
+<BlogPost
+	title={post.title ?? 'Untitled'}
+	description={post.excerpt ?? post.title ?? 'MidMon blog post'}
+	publishedDate={post.publishedDate ?? new Date().toISOString()}
+	coverImage={post.coverImage}
+	author={post.author}
+	category={post.category}
+	body={post.body}
+/>

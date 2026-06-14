@@ -1,0 +1,33 @@
+---
+import { imageUrl } from '../lib/sanity-image';
+
+interface Props {
+	node: {
+		asset?: unknown;
+		alt?: string;
+		caption?: string;
+	};
+}
+
+const { node } = Astro.props;
+const src = imageUrl(node.asset, { width: 1200, quality: 85 });
+---
+
+{
+	src ? (
+		<figure class="my-8">
+			<img
+				src={src}
+				alt={node.alt || ''}
+				loading="lazy"
+				class="w-full rounded-2xl border"
+				style="border-color: var(--color-border);"
+			/>
+			{node.caption && (
+				<figcaption class="mt-2 text-center text-sm" style="color: var(--color-text-dim);">
+					{node.caption}
+				</figcaption>
+			)}
+		</figure>
+	) : null
+}

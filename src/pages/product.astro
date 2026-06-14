@@ -1,5 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import HowItWorks from '../components/HowItWorks.astro';
@@ -8,16 +10,11 @@ import Pricing from '../components/Pricing.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead
-			title={`Product . ${SITE_TITLE}`}
-			description="How MidMon works. Self-installing sensors, on-device AI, plain-language alerts."
-		/>
-	</head>
-	<body>
-		<Header />
+<BaseLayout
+	title={`Product . ${SITE_TITLE}`}
+	description="How MidMon works. Self-installing sensors, on-device AI, plain-language alerts."
+>
+	<Header />
 		<main class="pt-36 md:pt-44">
 			<section class="container-x pb-8">
 				<div class="mx-auto max-w-3xl text-center">
@@ -40,6 +37,5 @@ import { SITE_TITLE } from '../consts';
 			<TechStack />
 			<Pricing />
 		</main>
-		<Footer />
-	</body>
-</html>
+	<Footer />
+</BaseLayout>

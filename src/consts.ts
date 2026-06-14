@@ -2,6 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'MidMon';
+export const SITE_URL = 'https://phasora.com';
 export const SITE_DESCRIPTION =
 	'Predictive maintenance for mid-market manufacturers. Self-installing sensors, on-device AI, under $10K per production line.';
 export const SITE_TAGLINE = 'Predictive maintenance built for the mid-market.';

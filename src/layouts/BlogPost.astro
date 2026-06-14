@@ -1,0 +1,71 @@
+---
+import type { PortableTextBlock } from '@portabletext/types';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import BaseLayout from './BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import PortableText from '../components/PortableText.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { imageUrl } from '../lib/sanity-image';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+	title: string;
+	description: string;
+	publishedDate: string;
+	coverImage?: SanityImageSource | null;
+	author?: {
+		name?: string;
+		bio?: string;
+		image?: SanityImageSource;
+	} | null;
+	category?: {
+		title?: string;
+	} | null;
+	body?: PortableTextBlock[] | null;
+}
+
+const { title, description, publishedDate, coverImage, author, category, body } = Astro.props;
+const coverSrc = imageUrl(coverImage, { width: 1400, height: 700, quality: 85 });
+---
+
+<BaseLayout title={`${title} . ${SITE_TITLE}`} description={description}>
+	<Header />
+		<main class="pt-36 pb-24 md:pt-44">
+			<article class="container-x">
+				<div class="mx-auto max-w-3xl">
+					<div data-reveal class="flex flex-wrap items-center gap-3 text-sm" style="color: var(--color-text-dim);">
+						{category?.title && <span class="chip">{category.title}</span>}
+						<FormattedDate date={publishedDate} />
+						{author?.name && <span>{author.name}</span>}
+					</div>
+
+					<h1 data-reveal data-reveal-delay="1" class="mt-5 text-4xl font-semibold tracking-tight md:text-5xl" style="color: var(--color-text);">
+						{title}
+					</h1>
+
+					{
+						coverSrc && (
+							<div data-reveal data-reveal-delay="2" class="mt-8 overflow-hidden rounded-2xl border" style="border-color: var(--color-border);">
+								<img src={coverSrc} alt="" class="h-auto w-full object-cover" loading="eager" />
+							</div>
+						)
+					}
+
+					<div data-reveal data-reveal-delay="3" class="mt-10">
+						<PortableText value={body} />
+					</div>
+
+					<div data-reveal class="mt-12 border-t pt-8" style="border-color: var(--color-border);">
+						<a href="/blog" class="btn btn-ghost">
+							<svg class="h-3.5 w-3.5 rotate-180" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+								<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+							All posts
+						</a>
+					</div>
+				</div>
+			</article>
+		</main>
+	<Footer />
+</BaseLayout>
