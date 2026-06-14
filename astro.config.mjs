@@ -47,6 +47,11 @@ export default defineConfig({
 	integrations: [react(), ...sanityIntegrations, mdx(), sitemap()],
 	vite: {
 		envPrefix: ['PUBLIC_'],
+		define: {
+			// Ensure Studio and client bundles always have Sanity IDs on CI (Cloudflare build vars are runtime-only).
+			'import.meta.env.PUBLIC_SANITY_PROJECT_ID': JSON.stringify(projectId),
+			'import.meta.env.PUBLIC_SANITY_DATASET': JSON.stringify(dataset),
+		},
 	},
 	session: {
 		driver: sessionDrivers.null(),
