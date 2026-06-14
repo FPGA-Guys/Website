@@ -1,10 +1,10 @@
 import createImageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { sanityConfigured, sanityDataset, sanityProjectId } from './sanity-env';
 
-const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID;
-const dataset = import.meta.env.PUBLIC_SANITY_DATASET || 'production';
-
-const builder = projectId ? createImageUrlBuilder({ projectId, dataset }) : null;
+const builder = sanityConfigured
+	? createImageUrlBuilder({ projectId: sanityProjectId, dataset: sanityDataset })
+	: null;
 
 export function urlFor(source: SanityImageSource | null | undefined) {
 	if (!builder || !source) {

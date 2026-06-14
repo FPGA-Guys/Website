@@ -7,6 +7,10 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"vars": {
+		"PUBLIC_SANITY_PROJECT_ID": "e42zgvs8",
+		"PUBLIC_SANITY_DATASET": "production"
+	},
 	"observability": {
 		"enabled": true
 	}

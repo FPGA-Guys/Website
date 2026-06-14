@@ -7,11 +7,19 @@ import sanity from '@sanity/astro';
 import { defineConfig, sessionDrivers } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import { loadEnv } from 'vite';
+import sanityProject from './sanity.project.json' with { type: 'json' };
 
-// Load .env before config is read (Astro does not invoke function-form configs).
+// Load .env locally; fall back to process.env (CI) then committed public project IDs.
 const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
-const projectId = env.PUBLIC_SANITY_PROJECT_ID;
-const dataset = env.PUBLIC_SANITY_DATASET || 'production';
+const projectId =
+	env.PUBLIC_SANITY_PROJECT_ID ??
+	process.env.PUBLIC_SANITY_PROJECT_ID ??
+	sanityProject.projectId;
+const dataset =
+	env.PUBLIC_SANITY_DATASET ??
+	process.env.PUBLIC_SANITY_DATASET ??
+	sanityProject.dataset ??
+	'production';
 
 const sanityIntegrations = projectId
 	? [
@@ -27,7 +35,7 @@ const sanityIntegrations = projectId
 
 if (!projectId) {
 	console.warn(
-		'[MidMon] PUBLIC_SANITY_PROJECT_ID is not set. Blog pages will be empty and /admin Studio is disabled until you add it to .env',
+		'[MidMon] PUBLIC_SANITY_PROJECT_ID is not set. Blog pages will be empty and /admin Studio is disabled.',
 	);
 }
 

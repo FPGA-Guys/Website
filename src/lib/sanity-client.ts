@@ -1,17 +1,14 @@
 import { createClient, type SanityClient } from '@sanity/client';
+import { sanityConfigured, sanityDataset, sanityProjectId } from './sanity-env';
 
-const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID;
-const dataset = import.meta.env.PUBLIC_SANITY_DATASET || 'production';
-
-/** True when PUBLIC_SANITY_PROJECT_ID is set in the environment. */
-export const sanityConfigured = Boolean(projectId);
+export { sanityConfigured } from './sanity-env';
 
 function createSanityClient(): SanityClient | null {
-	if (!projectId) return null;
+	if (!sanityConfigured) return null;
 
 	return createClient({
-		projectId,
-		dataset,
+		projectId: sanityProjectId,
+		dataset: sanityDataset,
 		useCdn: false,
 		apiVersion: '2024-06-01',
 	});
