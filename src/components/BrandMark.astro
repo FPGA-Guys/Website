@@ -5,50 +5,82 @@ interface Props {
 }
 
 const { size = 'header', class: className = '' } = Astro.props;
-
-const sizeClass =
-	size === 'footer' ? 'brand-lockup brand-lockup--footer' : 'brand-lockup brand-lockup--header';
 ---
 
-<span class:list={['brand-lockup-wrap', className]}>
-	<img
-		src="/brand/phasora-logo-transparent.png"
-		alt="Phasora"
-		width="200"
-		height="72"
-		class:list={[sizeClass, 'brand-lockup brand-lockup--light']}
-		loading="eager"
-		decoding="async"
-	/>
-	<img
-		src="/brand/phasora-logo-dark.png"
-		alt="Phasora"
-		width="200"
-		height="72"
-		class:list={[sizeClass, 'brand-lockup brand-lockup--dark']}
-		loading="eager"
-		decoding="async"
-	/>
-</span>
+{
+	size === 'footer' ? (
+		<span class:list={['brand-lockup-wrap', className]}>
+			<img
+				src="/brand/phasora-logo-transparent.png"
+				alt="Phasora"
+				width="200"
+				height="72"
+				class="brand-lockup brand-lockup--footer brand-lockup--light"
+				loading="eager"
+				decoding="async"
+			/>
+			<img
+				src="/brand/phasora-logo-dark.png"
+				alt="Phasora"
+				width="200"
+				height="72"
+				class="brand-lockup brand-lockup--footer brand-lockup--dark"
+				loading="eager"
+				decoding="async"
+			/>
+		</span>
+	) : (
+		<span class:list={['brand-wordmark-wrap', className]}>
+			<img
+				src="/brand/phasora-wordmark-transparent.png"
+				alt="Phasora"
+				width="240"
+				height="32"
+				class="brand-wordmark brand-wordmark--light"
+				loading="eager"
+				decoding="async"
+			/>
+			<img
+				src="/brand/phasora-wordmark-dark.png"
+				alt="Phasora"
+				width="240"
+				height="32"
+				class="brand-wordmark brand-wordmark--dark"
+				loading="eager"
+				decoding="async"
+			/>
+		</span>
+	)
+}
 
 <style>
+	.brand-wordmark-wrap {
+		display: inline-flex;
+		align-items: center;
+		line-height: 0;
+	}
+
 	.brand-lockup-wrap {
 		display: inline-block;
 		line-height: 0;
 	}
 
-	.brand-lockup {
+	.brand-lockup,
+	.brand-wordmark {
 		width: auto;
 		object-fit: contain;
+		display: block;
 	}
 
-	/* Fits inside the original nav bar height (py-3) without stretching the header. */
-	.brand-lockup--header {
-		height: 2.5rem;
-		max-height: 2.5rem;
+	/* Header wordmark — slightly below button height for balance */
+	.brand-wordmark {
+		height: 1.5rem;
+		max-height: 1.5rem;
+		/* Optical center: letterforms sit slightly high in the crop */
+		transform: translateY(1px);
 	}
 
-	/* Footer has more room — use it. */
+	/* Footer stacked logo */
 	.brand-lockup--footer {
 		height: 5rem;
 	}
@@ -65,11 +97,13 @@ const sizeClass =
 		}
 	}
 
-	html.light .brand-lockup--dark {
+	html.light .brand-lockup--dark,
+	html.light .brand-wordmark--dark {
 		display: none;
 	}
 
-	html:not(.light) .brand-lockup--light {
+	html:not(.light) .brand-lockup--light,
+	html:not(.light) .brand-wordmark--light {
 		display: none;
 	}
 </style>
