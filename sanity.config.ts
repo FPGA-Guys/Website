@@ -14,8 +14,8 @@ const dataset =
 	'production';
 
 export default defineConfig({
-	name: 'midmon',
-	title: 'MidMon',
+	name: 'phasora',
+	title: 'Phasora',
 	projectId,
 	dataset,
 	plugins: [structureTool()],

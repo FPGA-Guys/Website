@@ -1,48 +1,75 @@
 ---
 interface Props {
-	size?: number;
-	idSuffix?: string;
+	size?: 'header' | 'footer';
+	class?: string;
 }
-const { size = 32, idSuffix = 'bm' } = Astro.props;
-const gid = `mm-grad-${idSuffix}`;
+
+const { size = 'header', class: className = '' } = Astro.props;
+
+const sizeClass =
+	size === 'footer' ? 'brand-lockup brand-lockup--footer' : 'brand-lockup brand-lockup--header';
 ---
 
-<span class="relative inline-flex shrink-0 items-center justify-center" style={`width:${size}px;height:${size}px;`}>
-	<span
-		class="absolute inset-0 rounded-lg bg-gradient-to-br from-[#2dd4bf] to-[#60a5fa] opacity-60 blur-[10px]"
-	></span>
-	<svg
-		viewBox="0 0 64 64"
-		class="relative"
-		style={`width:${size}px;height:${size}px;`}
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-		aria-hidden="true"
-	>
-		<defs>
-			<linearGradient id={gid} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-				<stop offset="0" stop-color="#2dd4bf"></stop>
-				<stop offset="1" stop-color="#60a5fa"></stop>
-			</linearGradient>
-		</defs>
-		<rect
-			x="4"
-			y="4"
-			width="56"
-			height="56"
-			rx="14"
-			fill="#04080f"
-			stroke={`url(#${gid})`}
-			stroke-width="2.5"
-		></rect>
-		<path
-			d="M12 38 L20 38 L24 28 L30 46 L36 22 L40 38 L52 38"
-			stroke={`url(#${gid})`}
-			stroke-width="3"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			fill="none"
-		></path>
-		<circle cx="52" cy="38" r="3" fill="#2dd4bf"></circle>
-	</svg>
+<span class:list={['brand-lockup-wrap', className]}>
+	<img
+		src="/brand/phasora-logo-transparent.png"
+		alt="Phasora"
+		width="200"
+		height="72"
+		class:list={[sizeClass, 'brand-lockup brand-lockup--light']}
+		loading="eager"
+		decoding="async"
+	/>
+	<img
+		src="/brand/phasora-logo-dark.png"
+		alt="Phasora"
+		width="200"
+		height="72"
+		class:list={[sizeClass, 'brand-lockup brand-lockup--dark']}
+		loading="eager"
+		decoding="async"
+	/>
 </span>
+
+<style>
+	.brand-lockup-wrap {
+		display: inline-block;
+		line-height: 0;
+	}
+
+	.brand-lockup {
+		width: auto;
+		object-fit: contain;
+	}
+
+	/* Fits inside the original nav bar height (py-3) without stretching the header. */
+	.brand-lockup--header {
+		height: 2.5rem;
+		max-height: 2.5rem;
+	}
+
+	/* Footer has more room — use it. */
+	.brand-lockup--footer {
+		height: 5rem;
+	}
+
+	@media (min-width: 640px) {
+		.brand-lockup--footer {
+			height: 5.5rem;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.brand-lockup--footer {
+			height: 6rem;
+		}
+	}
+
+	html.light .brand-lockup--dark {
+		display: none;
+	}
+
+	html:not(.light) .brand-lockup--light {
+		display: none;
+	}
+</style>

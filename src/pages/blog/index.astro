@@ -22,10 +22,10 @@ const posts = sanityConfigured
 
 <BaseLayout
 	title={`Blog . ${SITE_TITLE}`}
-	description="Updates and field notes from the MidMon team."
+	description="Updates and field notes from the Phasora team."
 >
 	<Header />
-		<main class="pt-36 md:pt-44">
+		<main class="page-main">
 			<section class="container-x">
 				<div class="mx-auto max-w-3xl text-center">
 					<div data-reveal>
@@ -72,7 +72,7 @@ const posts = sanityConfigured
 																loading="lazy"
 															/>
 														) : (
-															<div class="absolute inset-0 bg-grid opacity-30" />
+															<div class="absolute inset-0" style="background: var(--color-elev-1);" />
 														)
 													}
 													<div class="absolute right-5 bottom-4 left-5 flex items-center justify-between">

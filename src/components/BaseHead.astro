@@ -31,7 +31,7 @@ const ogImage = new URL(image.src, canonicalURL);
 <script is:inline>
 	(function () {
 		try {
-			var saved = localStorage.getItem('midmon-theme');
+			var saved = localStorage.getItem('phasora-theme') || localStorage.getItem('midmon-theme');
 			var prefersLight =
 				window.matchMedia &&
 				window.matchMedia('(prefers-color-scheme: light)').matches;

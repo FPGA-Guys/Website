@@ -35,13 +35,13 @@ const sanityIntegrations = projectId
 
 if (!projectId) {
 	console.warn(
-		'[MidMon] PUBLIC_SANITY_PROJECT_ID is not set. Blog pages will be empty and /admin Studio is disabled.',
+		'[Phasora] PUBLIC_SANITY_PROJECT_ID is not set. Blog pages will be empty and /admin Studio is disabled.',
 	);
 }
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://phasora.com',
+	site: 'https://phasora.ca',
 	// Hybrid: marketing pages prerender; /admin is server-rendered via @sanity/astro injectRoute.
 	output: 'server',
 	integrations: [react(), ...sanityIntegrations, mdx(), sitemap()],
