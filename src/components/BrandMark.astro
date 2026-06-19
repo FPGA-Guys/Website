@@ -9,25 +9,47 @@ const { size = 'header', class: className = '' } = Astro.props;
 
 {
 	size === 'footer' ? (
-		<span class:list={['brand-lockup-wrap', className]}>
-			<img
-				src="/brand/phasora-logo-transparent.png"
-				alt="Phasora"
-				width="200"
-				height="72"
-				class="brand-lockup brand-lockup--footer brand-lockup--light"
-				loading="eager"
-				decoding="async"
-			/>
-			<img
-				src="/brand/phasora-logo-dark.png"
-				alt="Phasora"
-				width="200"
-				height="72"
-				class="brand-lockup brand-lockup--footer brand-lockup--dark"
-				loading="eager"
-				decoding="async"
-			/>
+		<span class:list={['brand-lockup-wrap brand-lockup-wrap--stacked', className]}>
+			<span class="brand-wave-wrap">
+				<img
+					src="/brand/phasora-wave.png"
+					alt=""
+					width="200"
+					height="48"
+					class="brand-wave brand-wave--light"
+					loading="eager"
+					decoding="async"
+				/>
+				<img
+					src="/brand/phasora-wave-dark.png"
+					alt=""
+					width="200"
+					height="48"
+					class="brand-wave brand-wave--dark"
+					loading="eager"
+					decoding="async"
+				/>
+			</span>
+			<span class="brand-wordmark-wrap brand-wordmark-wrap--footer">
+				<img
+					src="/brand/phasora-wordmark-transparent.png"
+					alt="Phasora"
+					width="240"
+					height="32"
+					class="brand-wordmark brand-wordmark--footer brand-wordmark--light"
+					loading="eager"
+					decoding="async"
+				/>
+				<img
+					src="/brand/phasora-wordmark-dark.png"
+					alt="Phasora"
+					width="240"
+					height="32"
+					class="brand-wordmark brand-wordmark--footer brand-wordmark--dark"
+					loading="eager"
+					decoding="async"
+				/>
+			</span>
 		</span>
 	) : (
 		<span class:list={['brand-wordmark-wrap', className]}>
@@ -58,6 +80,12 @@ const { size = 'header', class: className = '' } = Astro.props;
 		display: inline-flex;
 		align-items: center;
 		line-height: 0;
+		min-width: 0;
+		max-width: min(11.25rem, calc(100vw - 8.5rem));
+	}
+
+	.brand-wordmark-wrap--footer {
+		max-width: none;
 	}
 
 	.brand-lockup-wrap {
@@ -65,45 +93,80 @@ const { size = 'header', class: className = '' } = Astro.props;
 		line-height: 0;
 	}
 
+	.brand-lockup-wrap--stacked {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.25rem;
+		width: 12.375rem;
+	}
+
+	.brand-wave-wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		line-height: 0;
+		width: 85%;
+	}
+
 	.brand-lockup,
+	.brand-wave,
 	.brand-wordmark {
 		width: auto;
+		max-width: 100%;
 		object-fit: contain;
 		display: block;
 	}
 
-	/* Header wordmark — slightly below button height for balance */
-	.brand-wordmark {
-		height: 1.5rem;
+	/* Header wordmark — scales down on narrow screens so nav controls stay visible */
+	.brand-wordmark:not(.brand-wordmark--footer) {
+		height: clamp(1rem, 4.2vw, 1.5rem);
 		max-height: 1.5rem;
 		/* Optical center: letterforms sit slightly high in the crop */
 		transform: translateY(1px);
 	}
 
-	/* Footer stacked logo */
-	.brand-lockup--footer {
-		height: 5rem;
+	/* Footer wave centered above wordmark */
+	.brand-wave {
+		width: 100%;
+		height: auto;
+	}
+
+	.brand-wordmark-wrap--footer {
+		width: 100%;
+		align-self: stretch;
+	}
+
+	.brand-wordmark--footer {
+		width: 100%;
+		height: auto;
 	}
 
 	@media (min-width: 640px) {
-		.brand-lockup--footer {
-			height: 5.5rem;
+		.brand-lockup-wrap--stacked {
+			width: 13.6rem;
 		}
 	}
 
 	@media (min-width: 768px) {
-		.brand-lockup--footer {
-			height: 6rem;
+		.brand-lockup-wrap--stacked {
+			width: 14.85rem;
 		}
 	}
 
 	html.light .brand-lockup--dark,
+	html.light .brand-wave--dark,
 	html.light .brand-wordmark--dark {
 		display: none;
 	}
 
 	html:not(.light) .brand-lockup--light,
+	html:not(.light) .brand-wave--light,
 	html:not(.light) .brand-wordmark--light {
 		display: none;
+	}
+
+	html:not(.light) .brand-wordmark--dark {
+		filter: brightness(0) invert(1);
 	}
 </style>
