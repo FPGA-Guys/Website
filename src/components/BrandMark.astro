@@ -160,6 +160,10 @@ const { size = 'header', class: className = '' } = Astro.props;
 		display: none;
 	}
 
+	html.light .brand-wordmark--light {
+		filter: brightness(0);
+	}
+
 	html:not(.light) .brand-lockup--light,
 	html:not(.light) .brand-wave--light,
 	html:not(.light) .brand-wordmark--light {

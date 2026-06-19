@@ -134,6 +134,9 @@ html.light {
 			background-color 240ms ease,
 			color 240ms ease;
 	}
+	html {
+		scrollbar-gutter: stable;
+	}
 	body {
 		margin: 0;
 		line-height: 1.6;
@@ -306,6 +309,16 @@ html.light {
 
 	.page-main--tight-footer {
 		@apply pb-6 md:pb-8;
+	}
+
+	.page-main.page-main--blog {
+		padding-bottom: 2.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.page-main.page-main--blog {
+			padding-bottom: 3rem;
+		}
 	}
 
 	.mask-fade-edges {
